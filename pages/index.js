@@ -49,7 +49,7 @@ useEffect(() => {
       <div className=" max-w-7xl mx-auto px-7 sm:px-20 lg:px-8">
           <div className="max-w-3xl mx-auto ">
             <SearchBar count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
-            <Table result={result} setResult={setResult}/>
+            <Table result={result} setResult={setResult} loading={loading}/>
           </div>
       </div>
     </>
