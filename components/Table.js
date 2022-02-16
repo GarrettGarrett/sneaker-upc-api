@@ -1,6 +1,6 @@
 import { TrashIcon, PhotographIcon } from '@heroicons/react/outline'
   
-  export default function Table({result, setResult, loading }) {
+  export default function Table({result, setResult, loading, upcTitle, setUpcTitle, titleTitle, setTitleTitle, sizeTitle, setSizeTitle, colorwayTitle, setColorwayTitle }) {
 
 
     function removeFromState(index){
@@ -32,25 +32,59 @@ import { TrashIcon, PhotographIcon } from '@heroicons/react/outline'
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
+
+                    <input    
+                        type="checkbox"
+                        checked={upcTitle}
+                        onClick={()=> setUpcTitle(!upcTitle)}
+                        className="h-4 w-4 text-indigo-600 border-gray-300 rounded mr-2"
+                    />
+
                       UPC
                     </th>
+
+
+
                     <th
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
+                        <input    
+                            type="checkbox"
+                            checked={titleTitle}
+                            onClick={()=> setTitleTitle(!titleTitle)}
+                            className="h-4 w-4 text-indigo-600 border-gray-300 rounded mr-2"
+                        />
+
                       Title
                     </th>
+
+
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className="mx-6 my-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
+                        <input    
+                        type="checkbox"
+                        checked={sizeTitle}
+                        onClick={()=> setSizeTitle(!sizeTitle)}
+                        className="h-4 w-4 text-indigo-600 border-gray-300 rounded mr-2"
+                        />
                       Size
                     </th>
+
+
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className="px-6 my-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Colorway
+                         <input    
+                        type="checkbox"
+                        checked={colorwayTitle}
+                        onClick={()=> setColorwayTitle(!colorwayTitle)}
+                        className="h-4 w-4 text-indigo-600 border-gray-300 rounded mr-2"
+                        />
+                      Color
                     </th>
                     
                   </tr>
@@ -62,36 +96,40 @@ import { TrashIcon, PhotographIcon } from '@heroicons/react/outline'
                   {result?.map((res, idx) => (
                     <tr hidden={!res?.title}  key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                       
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <TrashIcon 
                         onClick={() => {
                             removeFromState(idx)
                         }}      
                         className="flex-shrink-0 h-5 w-5 text-indigo-600 hover:cursor-pointer" aria-hidden="true" />
                     </td>
+
                       
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{(res?.upc)?.replace("'","")}  
-                      </td>
+                    <td
+                    className={`${!upcTitle ? 'opacity-0' : null } px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900`}>{(res?.upc)?.replace("'","")}  
+                    </td>
 
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        <div className="flex items-center">
-                            <div className="flex-shrink-0 h-10 w-10 ">
-                                {res.image == "N/A" ? 
-                                <PhotographIcon className="h-8 w-8 rounded-full text-slate-400" />
-                                :    
-                                <img className="h-10 w-10 rounded-full" src={res.image} alt="" />
-                            }
-                            
-                            </div>
-                            <div className="ml-4">
-                            <div className="text-sm font-medium text-gray-900">{res.title}</div>
-                            
-                            </div>
+
+                    <td className={`${!titleTitle ? 'opacity-0' : null } px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900`}>
+                    <div className="flex items-center">
+                        <div className="flex-shrink-0 h-10 w-10 ">
+                            {res.image == "N/A" ? 
+                            <PhotographIcon className="h-8 w-8 rounded-full text-slate-400" />
+                            :    
+                            <img className="h-10 w-10 rounded-full" src={res.image} alt="" />
+                        }
+                        
                         </div>
-                      </td>
+                        <div className="ml-4">
+                        <div className="text-sm font-medium text-gray-900">{res.title}</div>
+                        
+                        </div>
+                    </div>
+                    </td>
 
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{res.size}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{res.color2}</td>
+
+                      <td className={`${!sizeTitle ? 'opacity-0' : null } px-6 py-4 whitespace-nowrap text-sm text-gray-500`}>{res.size}</td>
+                      <td className={`${!colorwayTitle ? 'opacity-0' : null } px-6 py-4 whitespace-nowrap text-sm text-gray-500`}>{res.color2}</td>
 
                     </tr>
                   ))}

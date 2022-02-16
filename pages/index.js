@@ -26,6 +26,10 @@ export default function Home({ count }) {
   const [result, setResult] = useState([])
   const [queue, setQueue] = useState([])
   const [copy, setCopy] = useState(true)
+  const [upcTitle, setUpcTitle] = useState(true)
+  const [titleTitle, setTitleTitle] = useState(true)
+  const [sizeTitle, setSizeTitle] = useState(true)
+  const [colorwayTitle, setColorwayTitle] = useState(true)
 
   async function searchMongoDB(userQuery){
     if (userQuery?.length) {
@@ -51,8 +55,8 @@ useEffect(() => {
     let returnSting = ''
     result.forEach(item => {
       const tab = "\t"
-      let entry = (item.upc) + tab + item.title + tab + item.size + tab + item.color2 + "\n"
-      returnSting += entry
+      let entry = (upcTitle ? (item.upc) + tab : "") + (titleTitle ? item.title + tab : "") + (sizeTitle ?  item.size + tab : '') + (colorwayTitle ? item.color2 : '')
+      returnSting += '\n' + entry
     })
     console.log("🚀 ~ file: index.js ~ line 67 ~ copyToClip ~ returnSting", returnSting)
     return returnSting
@@ -85,7 +89,7 @@ useEffect(() => {
             </CopyToClipboard>
 
 
-            <Table result={result} setResult={setResult} loading={loading}/>
+            <Table result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
           </div>
       </div>
     </>
