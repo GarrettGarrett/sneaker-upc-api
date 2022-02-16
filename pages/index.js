@@ -24,6 +24,14 @@ export default function Home({ count }) {
   const [result, setResult] = useState([])
   const [queue, setQueue] = useState([])
 
+function vibrate() {
+  if ("vibrate" in navigator) {
+    // vibration API supported
+    navigator.vibrate(1000);
+  }
+}
+
+
   async function searchMongoDB(userQuery){
     if (userQuery?.length) {
       setLoading(true)
@@ -41,6 +49,7 @@ export default function Home({ count }) {
 
 useEffect(() => {
   searchMongoDB(queue.slice(-1)[0] ) //search 1st upc in queue
+  vibrate()
 }, [queue])
 
 
