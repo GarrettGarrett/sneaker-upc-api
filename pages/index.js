@@ -27,6 +27,7 @@ export default function Home({ count }) {
 function vibrate() {
   if ("vibrate" in navigator) {
     // vibration API supported
+    console.log("vibrated")
     navigator.vibrate(1000);
   }
 }
