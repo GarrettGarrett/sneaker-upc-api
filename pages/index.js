@@ -20,11 +20,13 @@ export async function getStaticProps({ params }) {
 
 export default function Home({ count }) {
   const [query, setQuery] = useState()
+  const [loading, setLoading] = useState(false)
   const [result, setResult] = useState([])
   const [queue, setQueue] = useState([])
 
   async function searchMongoDB(userQuery){
     if (userQuery?.length) {
+      setLoading(true)
       const mongoResult = await fetch ("/api/upc", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -33,6 +35,7 @@ export default function Home({ count }) {
       let {sneaker} = await mongoResult.json()
       console.log("🚀 ~ file: index.js ~ line 23 ~ searchMongoDB ~ sneaker", sneaker)
       setResult((oldArray) => [...oldArray, sneaker]) //add to queue
+      setLoading(false)
     }
 }
 
