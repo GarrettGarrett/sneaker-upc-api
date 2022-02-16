@@ -67,7 +67,7 @@ import { TrashIcon, PhotographIcon } from '@heroicons/react/outline'
                         onClick={() => {
                             removeFromState(idx)
                         }}      
-                        className="flex-shrink-0 h-4 w-4 text-indigo-600 hover:cursor-pointer" aria-hidden="true" />
+                        className="flex-shrink-0 h-5 w-5 text-indigo-600 hover:cursor-pointer" aria-hidden="true" />
                     </td>
                       
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{(res?.upc)?.replace("'","")}  
