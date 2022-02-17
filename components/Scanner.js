@@ -17,9 +17,9 @@ class Scanner extends Component {
           patchSize: 'medium',
           halfSample: true,
         },
-        numOfWorkers: 0,
+        numOfWorkers: 2,
         decoder: {
-          readers: ['code_128_reader'],
+          readers: ["upc_reader", "ean_reader"],
         },
         locate: true,
       },
