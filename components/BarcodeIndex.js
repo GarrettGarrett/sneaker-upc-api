@@ -3,8 +3,8 @@ import Scanner from '../components/Scanner'
 import Result from '../components/Result'
 
 
-function BarcodeIndex() {
-    const [scanning, setScanning] = useState(false)
+function BarcodeIndex({scanning, setScanning}) {
+    
     const [results, setResults] = useState([])
 
     const _scan = () => {

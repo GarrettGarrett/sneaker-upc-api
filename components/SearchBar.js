@@ -3,7 +3,7 @@ import BarcodeIndex from '../components/BarcodeIndex'
 
 
 
-export default function SearchBar({query, setQuery, setResult, queue, setQueue, count}) {
+export default function SearchBar({query, setQuery, setResult, queue, setQueue, count, scanning, setScanning }) {
 
 
     const callbackRef = useCallback(inputElement => { //for auto focusing on the name field when loading the page
@@ -39,7 +39,7 @@ export default function SearchBar({query, setQuery, setResult, queue, setQueue, 
             onKeyDown={handleKeyDown}
           />
           <span className="m-2">
-            <BarcodeIndex />
+            <BarcodeIndex scanning={scanning} setScanning={setScanning}/>
           </span>
          
         </div>

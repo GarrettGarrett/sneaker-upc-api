@@ -8,8 +8,8 @@ class Scanner extends Component {
         inputStream: {
           type: 'LiveStream',
           constraints: {
-            width: 640,
-            height: 480,
+            width: 0, //640
+            height: 0, //480
             facingMode: 'environment', // or user
           },
         },
@@ -17,7 +17,7 @@ class Scanner extends Component {
           patchSize: 'medium',
           halfSample: true,
         },
-        numOfWorkers: 4,
+        numOfWorkers: 0,
         decoder: {
           readers: ['code_128_reader'],
         },
@@ -53,7 +53,7 @@ class Scanner extends Component {
   
 
   render() {
-    return <div id="interactive" className="viewport" />
+    return <></>
   }
 }
 

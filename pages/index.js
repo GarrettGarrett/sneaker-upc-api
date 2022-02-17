@@ -30,6 +30,7 @@ export default function Home({ count }) {
   const [titleTitle, setTitleTitle] = useState(true)
   const [sizeTitle, setSizeTitle] = useState(true)
   const [colorwayTitle, setColorwayTitle] = useState(true)
+  const [scanning, setScanning] = useState(false)
 
   async function searchMongoDB(userQuery){
     if (userQuery?.length) {
@@ -67,11 +68,8 @@ useEffect(() => {
     <>
       <div className=" max-w-7xl mx-auto px-7 sm:px-20 lg:px-8">
           <div className="max-w-3xl mx-auto ">
-            <SearchBar count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
+            <SearchBar setScanning={setScanning} scanning={scanning} count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
             
-              
-             
-
 
             <CopyToClipboard
               options={{format: "text/plain"}}
@@ -90,6 +88,8 @@ useEffect(() => {
                 }
                  
             </CopyToClipboard>
+
+            {scanning ? <div id="interactive" className="viewport" /> : null}
 
 
             <Table result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
