@@ -89,7 +89,8 @@ useEffect(() => {
                  
             </CopyToClipboard>
 
-            {scanning ? <div id="interactive" className="viewport" /> : null}
+            {/* {scanning ? <div id="interactive" className="viewport" /> : null} */}
+            <div id="interactive" className="viewport" /> 
 
 
             <Table result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
