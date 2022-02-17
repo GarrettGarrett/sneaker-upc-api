@@ -1,4 +1,6 @@
 import { useEffect, useState, useCallback } from "react"
+import BarcodeIndex from '../components/BarcodeIndex'
+
 
 
 export default function SearchBar({query, setQuery, setResult, queue, setQueue, count}) {
@@ -24,18 +26,22 @@ export default function SearchBar({query, setQuery, setResult, queue, setQueue, 
 
     return (
       <div>
-        <div className="mt-1 border-b border-gray-300 focus-within:border-indigo-600">
+        <div className="flex mt-1 border-b border-gray-300 focus-within:border-indigo-600">
           <input
             ref={callbackRef}
             type="text"
             name="name"
             id="name"
-            className="block w-full border-0 border-b border-transparent focus:border-indigo-600 focus:ring-0 sm:text-sm"
+            className="block w-full border-0 border-transparent  focus:ring-0 sm:text-sm"
             placeholder={`Search ${numberWithCommas(count)} Barcodes`}
             value={query?.length ? query : ''}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
           />
+          <span className="m-2">
+            <BarcodeIndex />
+          </span>
+         
         </div>
       </div>
     )

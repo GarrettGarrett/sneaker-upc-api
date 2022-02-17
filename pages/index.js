@@ -69,7 +69,10 @@ useEffect(() => {
           <div className="max-w-3xl mx-auto ">
             <SearchBar count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
             
-            
+              
+             
+
+
             <CopyToClipboard
               options={{format: "text/plain"}}
               text={copyToClip()}
@@ -78,11 +81,11 @@ useEffect(() => {
                   copy ? 
                   <ClipboardIcon 
                   onClick={() => setCopy(!copy)}
-                  className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer m-3" />
+                  className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer mt-3" />
                   : 
                   <ClipboardCheckIcon 
                   onClick={() => setCopy(!copy)}
-                  className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer m-3" />
+                  className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer mt-3" />
                   
                 }
                  
