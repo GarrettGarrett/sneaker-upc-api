@@ -9,6 +9,7 @@ import { ClipboardIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
 
 
 
+
 export async function getStaticProps({ params }) {
   const { db } = await connectToDatabase();  
   const count = await db.collection("sneakers").count()
@@ -22,7 +23,7 @@ export async function getStaticProps({ params }) {
 
 export default function Home({ count }) {
   const [query, setQuery] = useState()
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false) //turns guide box green
   const [result, setResult] = useState([])
   const [queue, setQueue] = useState([])
   const [copy, setCopy] = useState(true)
@@ -33,9 +34,11 @@ export default function Home({ count }) {
   const [scanning, setScanning] = useState(false)
   const [finalScanResult, setFinalScanResult] = useState(false)
 
+
+
+
   async function searchMongoDB(userQuery){
     if (userQuery?.length) {
-
       setLoading(true)
       const mongoResult = await fetch ("/api/upc", {
         method: 'POST',
@@ -53,6 +56,8 @@ export default function Home({ count }) {
 useEffect(() => {
   searchMongoDB(queue.slice(-1)[0] ) //search 1st upc in queue
 }, [queue])
+
+
 
 
   function copyToClip() { //returns string that can be copied into excel
@@ -98,7 +103,6 @@ useEffect(() => {
                   }
                   
               </CopyToClipboard>
-
 
               <Table scanning={scanning} result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
             </div>
