@@ -35,10 +35,7 @@ export default function Home({ count }) {
 
   async function searchMongoDB(userQuery){
     if (userQuery?.length) {
-      if (finalScanResult) {
-        await new Promise(r => setTimeout(r, 750));
-        setFinalScanResult(false)//turn off green color
-      }
+
       setLoading(true)
       const mongoResult = await fetch ("/api/upc", {
         method: 'POST',
@@ -48,7 +45,8 @@ export default function Home({ count }) {
       let {sneaker} = await mongoResult.json()
       console.log("🚀 ~ file: index.js ~ line 23 ~ searchMongoDB ~ sneaker", sneaker)
       setResult((oldArray) => [...oldArray, sneaker]) //add to queue
-      setLoading(false)      
+      setLoading(false)   
+      setFinalScanResult(false)//turn off green color   
     }
 }
 

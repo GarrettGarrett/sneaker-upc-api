@@ -4,7 +4,8 @@ import Result from '../components/Result'
 
 const threshhold = 15 //how many scons before final result is determined?
 
-function BarcodeIndex({scanning, setScanning, setQueue, finalScanResult, setFinalScanResult}) {
+function BarcodeIndex({scanning, setScanning, setQueue, finalScanResult, setFinalScanResult,  searchMongoDB}) {
+  const [isFetching, setIsFetching] = useState(false)
     
     const [results, setResults] = useState([])
 
@@ -22,10 +23,12 @@ function BarcodeIndex({scanning, setScanning, setQueue, finalScanResult, setFina
           setResults(results.slice(0, threshhold)) //keep 15 most recent scans
         }
         // [1,1,1,1].every( (val, i, arr) => val === arr[0])   // true (one liner to check if all items in array are equal)
-        if ((results.every( (val, i, arr) => val === arr[0])) && results.length == threshhold) {
-          setFinalScanResult(true)
-          setResults([])
+        if ((results.every( (val, i, arr) => val === arr[0])) && results.length == threshhold && !isFetching) {
+          setIsFetching(true) //fetching from mongo, stop other scans
+          setFinalScanResult(true) //for green border 
+          setResults([]) //results array that tracks until threshold met
           searchMongoDB(results[0])
+          setIsFetching(false)
           // setQueue((oldArray) => [...oldArray, results[0]]) //add to queue
         }
     }
