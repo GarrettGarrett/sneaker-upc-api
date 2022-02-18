@@ -81,7 +81,7 @@ useEffect(() => {
             
 
            {scanning ? <div id="interactive" className="ml-2 mr-10 pt-4 block viewport absolute max-w-xs " /> : null}
-            {scanning ? <div className={` top-24 left-5  w-72 h-36 rounded-lg sm:left-6 ${finalScanResult ? 'border-green-500 blur border-8': 'border-white border-2'} relative `}></div> : null}
+            {scanning ? <div className={` top-24 left-5  w-72 h-36 rounded-lg sm:left-6 ${!finalScanResult ? 'border-green-500  border-4': 'border-white border-2'} relative `}></div> : null}
 
 
             <div className={`${scanning ? 'pt-48' : null}`}>
