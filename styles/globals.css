@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 .drawingBuffer {
+    position: relative;
     width: auto;
     height: 0;
   }

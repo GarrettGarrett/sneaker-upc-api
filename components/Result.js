@@ -9,7 +9,7 @@ function Result({ result }) {
       return (
         <li>
           {' '}
-          {result.codeResult.code} [{result.codeResult.format}]{' '}
+          [{result.codeResult.format}]{' '}
         </li>
       )
 }

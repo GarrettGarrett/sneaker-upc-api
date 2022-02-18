@@ -31,9 +31,14 @@ export default function Home({ count }) {
   const [sizeTitle, setSizeTitle] = useState(true)
   const [colorwayTitle, setColorwayTitle] = useState(true)
   const [scanning, setScanning] = useState(false)
+  const [finalScanResult, setFinalScanResult] = useState(false)
 
   async function searchMongoDB(userQuery){
     if (userQuery?.length) {
+      if (finalScanResult) {
+        await new Promise(r => setTimeout(r, 750));
+        setFinalScanResult(false)//turn off green color
+      }
       setLoading(true)
       const mongoResult = await fetch ("/api/upc", {
         method: 'POST',
@@ -44,6 +49,8 @@ export default function Home({ count }) {
       console.log("🚀 ~ file: index.js ~ line 23 ~ searchMongoDB ~ sneaker", sneaker)
       setResult((oldArray) => [...oldArray, sneaker]) //add to queue
       setLoading(false)
+      
+      
     }
 }
 
@@ -67,33 +74,39 @@ useEffect(() => {
   return (
     <>
       <div className=" max-w-7xl mx-auto px-7 sm:px-20 lg:px-8">
-          <div className="max-w-3xl mx-auto ">
-            <SearchBar setScanning={setScanning} scanning={scanning} count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
+          <div className="max-w-3xl mx-auto">
+                        
+            <SearchBar finalScanResult={finalScanResult} setFinalScanResult={setFinalScanResult} setQueue={setQueue} setScanning={setScanning} scanning={scanning} count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
             
 
-            <CopyToClipboard
-              options={{format: "text/plain"}}
-              text={copyToClip()}
-              >
-                {
-                  copy ? 
-                  <ClipboardIcon 
-                  onClick={() => setCopy(!copy)}
-                  className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer mt-3" />
-                  : 
-                  <ClipboardCheckIcon 
-                  onClick={() => setCopy(!copy)}
-                  className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer mt-3" />
+           {scanning ? <div id="interactive" className="pt-4 block mx-auto viewport absolute max-w-xs" /> : null}
+           {scanning ? <div className={`border- top-24 left-4  w-72 h-36 rounded-lg border-8 ${finalScanResult ? 'border-green-400': 'border-white'} relative `}></div> : null}
+         
+            
+
+            <div className={`${scanning ? 'pt-48' : null}`}>
+              <CopyToClipboard
+                options={{format: "text/plain"}}
+                text={copyToClip()}
+                >
+                  {
+                    copy ? 
+                    <ClipboardIcon 
+                    onClick={() => setCopy(!copy)}
+                    className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer mt-3" />
+                    : 
+                    <ClipboardCheckIcon 
+                    onClick={() => setCopy(!copy)}
+                    className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer mt-3" />
+                    
+                  }
                   
-                }
-                 
-            </CopyToClipboard>
-
-            {/* {scanning ? <div id="interactive" className="viewport" /> : null} */}
-            <div id="interactive" className="viewport" /> 
+              </CopyToClipboard>
 
 
-            <Table result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
+              <Table scanning={scanning} result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
+            </div>
+            
           </div>
       </div>
     </>
