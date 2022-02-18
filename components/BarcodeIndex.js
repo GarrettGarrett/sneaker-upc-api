@@ -14,6 +14,14 @@ function BarcodeIndex({scanning, setScanning, setQueue, finalScanResult, setFina
       }
 
     const _onDetected = result => {
+
+      const wait2Seconds = async () => {
+        console.log("waiting 2 seconds!")
+        await new Promise(r => setTimeout(r, 2000));
+      }
+
+
+
     console.log("🚀 ~ file: BarcodeIndex.js ~ line 17 ~ BarcodeIndex ~ result", result.codeResult.format)
         setResults((oldArray) => [...oldArray, result.codeResult.code]) //add to queue
         console.log("🚀 ~ file: BarcodeIndex.js ~ line 19 ~ BarcodeIndex ~ result", result)
@@ -26,13 +34,11 @@ function BarcodeIndex({scanning, setScanning, setQueue, finalScanResult, setFina
           console.log("debug1")
           setFinalScanResult(true)
           setResults([])
+          wait2Seconds()
           setQueue((oldArray) => [...oldArray, results[0]]) //add to queue
         }
     }
 
-    // useEffect(() => {
-      
-    // }, [results])
 
 
     return (
