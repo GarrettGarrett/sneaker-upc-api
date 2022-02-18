@@ -26,7 +26,6 @@ function BarcodeIndex({scanning, setScanning, setQueue, finalScanResult, setFina
         }
         // [1,1,1,1].every( (val, i, arr) => val === arr[0])   // true (one liner to check if all items in array are equal)
         if ((results.every( (val, i, arr) => val === arr[0])) && results.length >= threshhold && !isFetching) {
-          console.log("debug%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
           play()
           setIsFetching(true) //fetching from mongo, stop other scans
           setFinalScanResult(true) //for green border 

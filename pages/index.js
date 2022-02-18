@@ -75,36 +75,19 @@ useEffect(() => {
   return (
     <>
       <div className=" max-w-7xl mx-auto px-7 sm:px-20 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-                        
+          <div className="max-w-3xl mx-auto ">
+                     
             <SearchBar searchMongoDB={searchMongoDB} finalScanResult={finalScanResult} setFinalScanResult={setFinalScanResult} setQueue={setQueue} setScanning={setScanning} scanning={scanning} count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
             
 
-           {scanning ? <div id="interactive" className="ml-3 pt-4 block mx-auto viewport absolute max-w-xs" /> : null}
-           {scanning ? <div className={` top-24 left-6  w-72 h-36 rounded-lg  ${finalScanResult ? 'border-green-600 border-8': 'border-white border-2'} relative `}></div> : null}
-         
-            
+           {scanning ? <div id="interactive" className="ml-2 mr-10 pt-4 block viewport absolute max-w-xs " /> : null}
+            {scanning ? <div className={` top-24 left-5  w-72 h-36 rounded-lg sm:left-6 ${finalScanResult ? 'border-green-600 border-8': 'border-white border-2'} relative `}></div> : null}
+
 
             <div className={`${scanning ? 'pt-48' : null}`}>
-              <CopyToClipboard
-                options={{format: "text/plain"}}
-                text={copyToClip()}
-                >
-                  {
-                    copy ? 
-                    <ClipboardIcon 
-                    onClick={() => setCopy(!copy)}
-                    className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer mt-3" />
-                    : 
-                    <ClipboardCheckIcon 
-                    onClick={() => setCopy(!copy)}
-                    className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer mt-3" />
-                    
-                  }
-                  
-              </CopyToClipboard>
 
-              <Table scanning={scanning} result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
+
+              <Table copy={copy} copyToClip={copyToClip} scanning={scanning} result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
             </div>
             
           </div>

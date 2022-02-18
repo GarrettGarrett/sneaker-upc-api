@@ -1,6 +1,13 @@
 import { TrashIcon, PhotographIcon } from '@heroicons/react/outline'
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { ClipboardIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
   
-  export default function Table({result, setResult, loading, upcTitle, setUpcTitle, titleTitle, setTitleTitle, sizeTitle, setSizeTitle, colorwayTitle, setColorwayTitle, scanning }) {
+
+
+
+
+
+export default function Table({result, setResult, loading, upcTitle, setUpcTitle, titleTitle, setTitleTitle, sizeTitle, setSizeTitle, colorwayTitle, setColorwayTitle, scanning, copyToClip, copy }) {
 
 
     function removeFromState(index){
@@ -27,6 +34,43 @@ import { TrashIcon, PhotographIcon } from '@heroicons/react/outline'
                     <th scope="col" className="relative py-3">
                         <span className="sr-only">Delete</span>
                     </th>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                        <CopyToClipboard
+                            options={{format: "text/plain"}}
+                            text={copyToClip()}
+                            >
+                              {
+                                copy ? 
+                                <ClipboardIcon 
+                                onClick={() => setCopy(!copy)}
+                                className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer mt-3" />
+                                : 
+                                <ClipboardCheckIcon 
+                                onClick={() => setCopy(!copy)}
+                                className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer mt-3" />
+                                
+                              }
+                          </CopyToClipboard>
+                    </th>
+
+
+
+
 
                     <th
                       scope="col"
