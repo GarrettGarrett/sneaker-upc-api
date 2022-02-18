@@ -80,7 +80,7 @@ useEffect(() => {
             <SearchBar searchMongoDB={searchMongoDB} finalScanResult={finalScanResult} setFinalScanResult={setFinalScanResult} setQueue={setQueue} setScanning={setScanning} scanning={scanning} count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
             
 
-           {scanning ? <div id="interactive" className="ml-2 pt-4 block mx-auto viewport absolute max-w-xs" /> : null}
+           {scanning ? <div id="interactive" className="ml-3 pt-4 block mx-auto viewport absolute max-w-xs" /> : null}
            {scanning ? <div className={` top-24 left-6  w-72 h-36 rounded-lg  ${finalScanResult ? 'border-green-600 border-8': 'border-white border-2'} relative `}></div> : null}
          
             
