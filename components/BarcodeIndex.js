@@ -24,7 +24,7 @@ function BarcodeIndex({scanning, setScanning, setQueue, finalScanResult, setFina
         setResults(results.slice(0, 8)) //keep 15 most recent scans
       }
       // [1,1,1,1].every( (val, i, arr) => val === arr[0])   // true (one liner to check if all items in array are equal)
-      if ((results.every( (val, i, arr) => val === arr[0])) && results.length == 15) {
+      if ((results.every( (val, i, arr) => val === arr[0])) && results.length == 8) {
         setResults([])
         setQueue((oldArray) => [...oldArray, results[0]]) //add to queue
         setFinalScanResult(true)
