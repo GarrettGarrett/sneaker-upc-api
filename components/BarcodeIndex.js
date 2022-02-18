@@ -19,15 +19,20 @@ function BarcodeIndex({scanning, setScanning, setQueue, finalScanResult, setFina
     }
 
     useEffect(() => {
-      console.log("🚀 ~ file: BarcodeIndex.js ~ line 30 ~ BarcodeIndex ~ results", results)
+      const wait2Seconds = async () => {
+        console.log("waiting 2 seconds!")
+        await new Promise(r => setTimeout(r, 2000));
+      }
+
       if (results.length > 8) {
         setResults(results.slice(0, 8)) //keep 15 most recent scans
       }
       // [1,1,1,1].every( (val, i, arr) => val === arr[0])   // true (one liner to check if all items in array are equal)
       if ((results.every( (val, i, arr) => val === arr[0])) && results.length == 8) {
+        setFinalScanResult(true)
         setResults([])
         setQueue((oldArray) => [...oldArray, results[0]]) //add to queue
-        setFinalScanResult(true)
+        wait2Seconds()
   
       }
     }, [results])

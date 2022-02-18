@@ -48,9 +48,7 @@ export default function Home({ count }) {
       let {sneaker} = await mongoResult.json()
       console.log("🚀 ~ file: index.js ~ line 23 ~ searchMongoDB ~ sneaker", sneaker)
       setResult((oldArray) => [...oldArray, sneaker]) //add to queue
-      setLoading(false)
-      
-      
+      setLoading(false)      
     }
 }
 
