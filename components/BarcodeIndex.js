@@ -17,15 +17,16 @@ function BarcodeIndex({scanning, setScanning, setQueue, finalScanResult, setFina
       }
 
     const _onDetected = result => {
-    console.log("🚀 ~ file: BarcodeIndex.js ~ line 17 ~ BarcodeIndex ~ result", result.codeResult.format)
         setResults((oldArray) => [...oldArray, result.codeResult.code]) //add to queue
-        console.log("🚀 ~ file: BarcodeIndex.js ~ line 19 ~ BarcodeIndex ~ result", result)
+        console.log("🚀 ~ file: BarcodeIndex.js ~ line 19 ~ BarcodeIndex ~ result", results)
 
         if (results.length > threshhold) {
-          setResults(results.slice(0, threshhold)) //keep 15 most recent scans
+          setResults(results.slice(15, 15 + threshhold)) //keep 15 most recent scans
+          console.log("new after slice:", results)
         }
         // [1,1,1,1].every( (val, i, arr) => val === arr[0])   // true (one liner to check if all items in array are equal)
-        if ((results.every( (val, i, arr) => val === arr[0])) && results.length == threshhold && !isFetching) {
+        if ((results.every( (val, i, arr) => val === arr[0])) && results.length >= threshhold && !isFetching) {
+          console.log("debug%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
           play()
           setIsFetching(true) //fetching from mongo, stop other scans
           setFinalScanResult(true) //for green border 
