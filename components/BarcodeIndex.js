@@ -16,7 +16,7 @@ function BarcodeIndex({scanning, setScanning, setQueue, finalScanResult, setFina
         setScanning(!scanning)
       }
 
-    const _onDetected = result => {
+    const _onDetected = async result => {
         setResults((oldArray) => [...oldArray, result.codeResult.code]) //add to queue
         console.log("🚀 ~ file: BarcodeIndex.js ~ line 19 ~ BarcodeIndex ~ result", results)
 
@@ -31,7 +31,7 @@ function BarcodeIndex({scanning, setScanning, setQueue, finalScanResult, setFina
           setIsFetching(true) //fetching from mongo, stop other scans
           setFinalScanResult(true) //for green border 
           setResults([]) //results array that tracks until threshold met
-          searchMongoDB(results[0])
+          const mongoResult = await searchMongoDB(results[0])
           setIsFetching(false)
         }
     }
