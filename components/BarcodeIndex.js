@@ -17,29 +17,22 @@ function BarcodeIndex({scanning, setScanning, setQueue, finalScanResult, setFina
     console.log("🚀 ~ file: BarcodeIndex.js ~ line 17 ~ BarcodeIndex ~ result", result.codeResult.format)
         setResults((oldArray) => [...oldArray, result.codeResult.code]) //add to queue
         console.log("🚀 ~ file: BarcodeIndex.js ~ line 19 ~ BarcodeIndex ~ result", result)
+
+        if (results.length > threshhold) {
+          setResults(results.slice(0, threshhold)) //keep 15 most recent scans
+        }
+        // [1,1,1,1].every( (val, i, arr) => val === arr[0])   // true (one liner to check if all items in array are equal)
+        if ((results.every( (val, i, arr) => val === arr[0])) && results.length == threshhold) {
+          console.log("debug1")
+          setFinalScanResult(true)
+          setResults([])
+          setQueue((oldArray) => [...oldArray, results[0]]) //add to queue
+        }
     }
 
-    useEffect(() => {
-      const wait2Seconds = async () => {
-        console.log("waiting 2 seconds!")
-        await new Promise(r => setTimeout(r, 2000));
-      }
-
-      if (results.length > threshhold) {
-        setResults(results.slice(0, threshhold)) //keep 15 most recent scans
-      }
-      // [1,1,1,1].every( (val, i, arr) => val === arr[0])   // true (one liner to check if all items in array are equal)
-      if ((results.every( (val, i, arr) => val === arr[0])) && results.length == threshhold) {
-        setFinalScanResult(true)
-        setResults([])
-        setQueue((oldArray) => [...oldArray, results[0]]) //add to queue
-        wait2Seconds()
-  
-      }
-    }, [results])
-
-    
-
+    // useEffect(() => {
+      
+    // }, [results])
 
 
     return (
