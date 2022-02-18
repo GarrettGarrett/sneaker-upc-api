@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from 'react'
 import Scanner from '../components/Scanner'
 import Result from '../components/Result'
 
+const threshhold = 15 //how many scons before final result is determined?
 
 function BarcodeIndex({scanning, setScanning, setQueue, finalScanResult, setFinalScanResult}) {
     
@@ -24,11 +25,11 @@ function BarcodeIndex({scanning, setScanning, setQueue, finalScanResult, setFina
         await new Promise(r => setTimeout(r, 2000));
       }
 
-      if (results.length > 8) {
-        setResults(results.slice(0, 8)) //keep 15 most recent scans
+      if (results.length > threshhold) {
+        setResults(results.slice(0, threshhold)) //keep 15 most recent scans
       }
       // [1,1,1,1].every( (val, i, arr) => val === arr[0])   // true (one liner to check if all items in array are equal)
-      if ((results.every( (val, i, arr) => val === arr[0])) && results.length == 8) {
+      if ((results.every( (val, i, arr) => val === arr[0])) && results.length == threshhold) {
         setFinalScanResult(true)
         setResults([])
         setQueue((oldArray) => [...oldArray, results[0]]) //add to queue
