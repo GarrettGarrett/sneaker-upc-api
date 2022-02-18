@@ -74,7 +74,7 @@ useEffect(() => {
       <div className=" max-w-7xl mx-auto px-7 sm:px-20 lg:px-8">
           <div className="max-w-3xl mx-auto">
                         
-            <SearchBar finalScanResult={finalScanResult} setFinalScanResult={setFinalScanResult} setQueue={setQueue} setScanning={setScanning} scanning={scanning} count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
+            <SearchBar searchMongoDB={searchMongoDB} finalScanResult={finalScanResult} setFinalScanResult={setFinalScanResult} setQueue={setQueue} setScanning={setScanning} scanning={scanning} count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
             
 
            {scanning ? <div id="interactive" className="ml-2 pt-4 block mx-auto viewport absolute max-w-xs" /> : null}
