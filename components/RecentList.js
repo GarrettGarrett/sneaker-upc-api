@@ -19,7 +19,7 @@ import moment from 'moment'
                 </div>
             </div>
             <div>
-                <p className="text-sm text-gray-500 ">{getMoment(sneaker?.date_added)}</p>
+                <p className="text-xs text-gray-500 ">{getMoment(sneaker?.date_added)}</p>
             </div>
           </li>
         ))}
