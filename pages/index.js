@@ -76,27 +76,25 @@ useEffect(() => {
 
   return (
     <>
-      <div className=" max-w-7xl mx-auto px-7 sm:px-20 lg:px-8">
-          <div className="max-w-3xl mx-auto ">
+    <div className=" max-w-7xl mx-auto px-7 sm:px-20 lg:px-8">
+        <div className="max-w-3xl mx-auto ">
+                   
+          <SearchBar searchMongoDB={searchMongoDB} finalScanResult={finalScanResult} setFinalScanResult={setFinalScanResult} setQueue={setQueue} setScanning={setScanning} scanning={scanning} count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
+          
 
-                
-            <SearchBar searchMongoDB={searchMongoDB} finalScanResult={finalScanResult} setFinalScanResult={setFinalScanResult} setQueue={setQueue} setScanning={setScanning} scanning={scanning} count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
-            
-            <div className='flex justify-center'>
-           {scanning ? <div id="interactive" className="ml-2 mr-10 pt-4 block viewport absolute max-w-xs " /> : null}
-           
-            {scanning ? <div className={` top-24 left-2 w-72 h-36 rounded-lg sm:left-2 ${finalScanResult ? 'border-green-500  border-4': 'border-white border-2'} relative `}></div> : null}
-            </div>
+         {scanning ? <div id="interactive" className="ml-2 mr-10 pt-4 block viewport absolute max-w-xs " /> : null}
+          {scanning ? <div className={` top-24 left-6  w-72 h-36 rounded-lg sm:left-6 ${finalScanResult ? 'border-green-500  border-4': 'border-white border-2'} relative `}></div> : null}
 
-            <div className={`${scanning ? 'pt-48' : null}`}>
-            
 
-              <Table setCopy={setCopy} copy={copy} copyToClip={copyToClip} scanning={scanning} result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
-            </div>
-            
+          <div className={`${scanning ? 'pt-48' : null}`}>
+
+
+            <Table copy={copy} copyToClip={copyToClip} scanning={scanning} result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
           </div>
-      </div>
-    </>
+          
+        </div>
+    </div>
+  </>
   
   )
 
