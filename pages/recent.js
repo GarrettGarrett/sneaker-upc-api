@@ -4,7 +4,7 @@ import RecentList from '../components/RecentList'
 
 export async function getStaticProps({ params }) {
     const { db } = await connectToDatabase();  
-    const latest = await db.collection("sneakers").find().sort({$natural:-1}).limit(25).toArray()
+    const latest = await db.collection("sneakers").find().sort({$natural:-1}).limit(40).toArray()
   
     return {
       props: {

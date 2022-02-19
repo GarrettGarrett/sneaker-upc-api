@@ -37,7 +37,6 @@ export default function Home({ count }) {
 
 
 
-
   async function searchMongoDB(userQuery){
     if (userQuery?.length) {
       setLoading(true)
@@ -57,8 +56,6 @@ export default function Home({ count }) {
 useEffect(() => {
   searchMongoDB(queue.slice(-1)[0] ) //search 1st upc in queue
 }, [queue])
-
-
 
 
   function copyToClip() { //returns string that can be copied into excel
