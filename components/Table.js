@@ -4,9 +4,6 @@ import { ClipboardIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
   
 
 
-
-
-
 export default function Table({result, setResult, loading, upcTitle, setUpcTitle, titleTitle, setTitleTitle, sizeTitle, setSizeTitle, colorwayTitle, setColorwayTitle, scanning, copyToClip, copy, setCopy }) {
 
 
@@ -20,7 +17,6 @@ export default function Table({result, setResult, loading, upcTitle, setUpcTitle
                 )
         }
     }
-
 
 
     return (

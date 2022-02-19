@@ -79,7 +79,7 @@ useEffect(() => {
     <>
  
 
-       <h1 className="pt-5 font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black">Start Scanning Below</h1>
+       <h1 className="pt-5 font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black">Start Scanning Sneakers</h1>
        <p class="text-gray-600  pb-5">Use any handheld scanner or your phone's camera</p>
 
 
@@ -93,7 +93,7 @@ useEffect(() => {
           <div className={`${scanning ? 'pt-48' : null}`}>
 
 
-          <Table setCopy={setCopy} copy={copy} copyToClip={copyToClip} scanning={scanning} result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
+          <Table setCopy={setCopy} copy={copy} copyToClip={copyToClip} scanning={scanning} result={result.reverse()} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
           </div>
          
           
