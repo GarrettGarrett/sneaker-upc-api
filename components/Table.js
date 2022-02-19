@@ -108,7 +108,7 @@ export default function Table({result, setResult, loading, upcTitle, setUpcTitle
                         onClick={() => {
                             removeFromState(idx)
                         }}      
-                        className="flex-shrink-0 h-5 w-5 text-indigo-600 hover:cursor-pointer" aria-hidden="true" />
+                        className="ml-1 flex-shrink-0 h-5 w-5 text-indigo-600 hover:cursor-pointer" aria-hidden="true" />
                     </td>
 
                       

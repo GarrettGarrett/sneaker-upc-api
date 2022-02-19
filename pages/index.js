@@ -2,6 +2,7 @@ import Head from 'next/head'
 import useSWR from 'swr'
 import SearchBar from '../components/SearchBar'
 import Table from '../components/Table'
+import Menu from '../components/Menu'
 import { useState, useEffect } from 'react'
 import { connectToDatabase } from '../utils/dbConnect'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
@@ -13,10 +14,6 @@ import { ClipboardIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
 export async function getStaticProps({ params }) {
   const { db } = await connectToDatabase();  
   const count = await db.collection("sneakers").count()
-  const latest = await db.collection("sneakers").find().sort({$natural:1}).limit(10).toArray()
-
-  console.log("🚀 ~ file: index.js ~ line 17 ~ getStaticProps ~ latest", latest)
-  console.log("🚀 ~ file: index.js ~ line 17 ~ getStaticProps ~ latestlength", latest.length)
   return {
     props: {
       count: count,
@@ -80,9 +77,7 @@ useEffect(() => {
 
   return (
     <>
-    <div className=" max-w-7xl mx-auto px-7 sm:px-20 lg:px-8">
-        <div className="max-w-3xl mx-auto ">
-                   
+
           <SearchBar searchMongoDB={searchMongoDB} finalScanResult={finalScanResult} setFinalScanResult={setFinalScanResult} setQueue={setQueue} setScanning={setScanning} scanning={scanning} count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
           
 
@@ -96,8 +91,7 @@ useEffect(() => {
             <Table setCopy={setCopy} copy={copy} copyToClip={copyToClip} scanning={scanning} result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
           </div>
           
-        </div>
-    </div>
+
   </>
   
   )
