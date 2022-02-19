@@ -80,7 +80,7 @@ useEffect(() => {
  
 
        <h1 className="pt-5 font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black">Sneaker Barcode Reader</h1>
-       <p class="text-gray-600  pb-5">Use any handheld scanner or your phone's camera</p>
+       <p class="text-gray-600  pb-5">Create Inventory Lists then Copy & Paste Into Excel, Notes, etc.</p>
 
 
         <SearchBar searchMongoDB={searchMongoDB} finalScanResult={finalScanResult} setFinalScanResult={setFinalScanResult} setQueue={setQueue} setScanning={setScanning} scanning={scanning} count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
