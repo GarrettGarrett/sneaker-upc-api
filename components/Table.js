@@ -80,7 +80,7 @@ export default function Table({result, setResult, loading, upcTitle, setUpcTitle
                     <th
                       onClick={()=> setSizeTitle(!sizeTitle)}
                       scope="col"
-                      className={`${titleTitle ? "font-bold" : "font-light"} hover:cursor-pointer w-40 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider`}
+                      className={`${sizeTitle ? "font-bold" : "font-light"} hover:cursor-pointer w-40 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider`}
                     >
                       Size
                     </th>
@@ -89,7 +89,7 @@ export default function Table({result, setResult, loading, upcTitle, setUpcTitle
                     <th
                       onClick={()=> setColorwayTitle(!colorwayTitle)}
                       scope="col"
-                      className={`${titleTitle ? "font-bold" : "font-light"} hover:cursor-pointer w-40 px-6 my-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider`}
+                      className={`${colorwayTitle ? "font-bold" : "font-light"} hover:cursor-pointer w-40 px-6 my-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider`}
                     >
                       Color
                     </th>
