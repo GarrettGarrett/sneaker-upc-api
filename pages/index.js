@@ -85,7 +85,7 @@ useEffect(() => {
             <div className='flex justify-center'>
            {scanning ? <div id="interactive" className="ml-2 mr-10 pt-4 block viewport absolute max-w-xs " /> : null}
            
-            {scanning ? <div className={` top-24 -left-4 w-72 h-36 rounded-lg sm:-left-4 ${finalScanResult ? 'border-green-500  border-4': 'border-white border-2'} relative `}></div> : null}
+            {scanning ? <div className={` top-24 left-4 w-72 h-36 rounded-lg sm:left-4 ${finalScanResult ? 'border-green-500  border-4': 'border-white border-2'} relative `}></div> : null}
             </div>
 
             <div className={`${scanning ? 'pt-48' : null}`}>
