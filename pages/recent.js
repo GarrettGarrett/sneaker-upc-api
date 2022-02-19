@@ -21,8 +21,10 @@ function Recent({latest}) {
   return (
     <>
        
-          <h1 className="py-5 font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black">Recently Added</h1>
-            <RecentList latest={latest}/>
+          <h1 className="pt-5 font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black">Recently Added</h1>
+          <p class="text-gray-600  pb-5">Updated Daily 😊</p>
+           
+          <RecentList latest={latest}/>
 
     </>
   )
