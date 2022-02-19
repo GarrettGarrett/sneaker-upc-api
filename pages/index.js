@@ -13,6 +13,10 @@ import { ClipboardIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
 export async function getStaticProps({ params }) {
   const { db } = await connectToDatabase();  
   const count = await db.collection("sneakers").count()
+  const latest = await db.collection("sneakers").find().sort({$natural:1}).limit(10).toArray()
+
+  console.log("🚀 ~ file: index.js ~ line 17 ~ getStaticProps ~ latest", latest)
+  console.log("🚀 ~ file: index.js ~ line 17 ~ getStaticProps ~ latestlength", latest.length)
   return {
     props: {
       count: count,
@@ -89,7 +93,7 @@ useEffect(() => {
           <div className={`${scanning ? 'pt-48' : null}`}>
 
 
-            <Table copy={copy} copyToClip={copyToClip} scanning={scanning} result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
+            <Table setCopy={setCopy} copy={copy} copyToClip={copyToClip} scanning={scanning} result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
           </div>
           
         </div>
