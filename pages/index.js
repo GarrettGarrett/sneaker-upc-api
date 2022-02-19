@@ -62,10 +62,12 @@ useEffect(() => {
 
   function copyToClip() { //returns string that can be copied into excel
     let returnSting = ''
-    result.forEach(item => {
-      const tab = "\t"
-      let entry = (upcTitle ? (item.upc) + tab : "") + (titleTitle ? item.title + tab : "") + (sizeTitle ?  item.size + tab : '') + (colorwayTitle ? item.color2 : '')
-      returnSting += '\n' + entry
+    result.forEach(item => {    
+      if (typeof item.upc != 'undefined'){ //this skips over deleted entries
+        const tab = "\t"
+        let entry = (upcTitle ? (item.upc) + tab : "") + (titleTitle ? item.title + tab : "") + (sizeTitle ?  item.size + tab : '') + (colorwayTitle ? item.color2 : '')
+        returnSting += '\n' + entry
+      }
     })
     console.log("🚀 ~ file: index.js ~ line 67 ~ copyToClip ~ returnSting", returnSting)
     return returnSting
