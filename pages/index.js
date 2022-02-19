@@ -78,16 +78,18 @@ useEffect(() => {
     <>
       <div className=" max-w-7xl mx-auto px-7 sm:px-20 lg:px-8">
           <div className="max-w-3xl mx-auto ">
-                     
+
+                
             <SearchBar searchMongoDB={searchMongoDB} finalScanResult={finalScanResult} setFinalScanResult={setFinalScanResult} setQueue={setQueue} setScanning={setScanning} scanning={scanning} count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
             
-
+            <div className='flex justify-center'>
            {scanning ? <div id="interactive" className="ml-2 mr-10 pt-4 block viewport absolute max-w-xs " /> : null}
-            {scanning ? <div className={` top-24 left-6  w-72 h-36 rounded-lg sm:left-6 ${finalScanResult ? 'border-green-500  border-4': 'border-white border-2'} relative `}></div> : null}
-
+           
+            {scanning ? <div className={` top-24 -left-4 w-72 h-36 rounded-lg sm:-left-4 ${finalScanResult ? 'border-green-500  border-4': 'border-white border-2'} relative `}></div> : null}
+            </div>
 
             <div className={`${scanning ? 'pt-48' : null}`}>
-
+            
 
               <Table setCopy={setCopy} copy={copy} copyToClip={copyToClip} scanning={scanning} result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
             </div>
