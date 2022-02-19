@@ -79,7 +79,7 @@ useEffect(() => {
     <>
  
 
-       <h1 className="pt-5 font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black">Start Scanning Sneakers</h1>
+       <h1 className="pt-5 font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black">Sneaker Barcode Reader</h1>
        <p class="text-gray-600  pb-5">Use any handheld scanner or your phone's camera</p>
 
 

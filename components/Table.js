@@ -34,7 +34,7 @@ export default function Table({result, setResult, loading, upcTitle, setUpcTitle
                     >
                         <CopyToClipboard
                             options={{format: "text/plain"}}
-                            text={copyToClip()}
+                            text={result?.length > 0 ? copyToClip() : ""}
                             >
                               {
                                 copy ? 
