@@ -7,7 +7,7 @@ import { ClipboardIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
 
 
 
-export default function Table({result, setResult, loading, upcTitle, setUpcTitle, titleTitle, setTitleTitle, sizeTitle, setSizeTitle, colorwayTitle, setColorwayTitle, scanning, copyToClip, copy }) {
+export default function Table({result, setResult, loading, upcTitle, setUpcTitle, titleTitle, setTitleTitle, sizeTitle, setSizeTitle, colorwayTitle, setColorwayTitle, scanning, copyToClip, copy, setCopy }) {
 
 
     function removeFromState(index){
@@ -31,21 +31,7 @@ export default function Table({result, setResult, loading, upcTitle, setUpcTitle
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
                   <tr>
-                    <th scope="col" className="relative py-3">
-                        <span className="sr-only">Delete</span>
-                    </th>
-
-
-
-
-
-
-
-
-
-
-
-
+                  
                     <th
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -58,31 +44,22 @@ export default function Table({result, setResult, loading, upcTitle, setUpcTitle
                                 copy ? 
                                 <ClipboardIcon 
                                 onClick={() => setCopy(!copy)}
-                                className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer mt-3" />
+                                className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer mt-1 mb-1" />
                                 : 
                                 <ClipboardCheckIcon 
                                 onClick={() => setCopy(!copy)}
-                                className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer mt-3" />
+                                className="h-6 w-6 rounded-full text-slate-500 hover:cursor-pointer mt-1 mb-1" />
                                 
                               }
                           </CopyToClipboard>
                     </th>
 
 
-
-
-
                     <th
+                      onClick={()=> setUpcTitle(!upcTitle)}
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className={`${upcTitle ? "font-bold" : "font-light"} hover:cursor-pointer w-40 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider`}
                     >
-
-                    <input    
-                        type="checkbox"
-                        checked={upcTitle}
-                        onClick={()=> setUpcTitle(!upcTitle)}
-                        className="h-4 w-4 text-indigo-600 border-gray-300 rounded mr-2"
-                    />
 
                       UPC
                     </th>
@@ -90,44 +67,30 @@ export default function Table({result, setResult, loading, upcTitle, setUpcTitle
 
 
                     <th
+                      onClick={()=> setTitleTitle(!titleTitle)}
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className={`${titleTitle ? "font-bold" : "font-light"} hover:cursor-pointer w-40 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider`}
                     >
-                        <input    
-                            type="checkbox"
-                            checked={titleTitle}
-                            onClick={()=> setTitleTitle(!titleTitle)}
-                            className="h-4 w-4 text-indigo-600 border-gray-300 rounded mr-2"
-                        />
+                  
 
                       Title
                     </th>
 
 
                     <th
+                      onClick={()=> setSizeTitle(!sizeTitle)}
                       scope="col"
-                      className="mx-6 my-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className={`${titleTitle ? "font-bold" : "font-light"} hover:cursor-pointer w-40 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider`}
                     >
-                        <input    
-                        type="checkbox"
-                        checked={sizeTitle}
-                        onClick={()=> setSizeTitle(!sizeTitle)}
-                        className="h-4 w-4 text-indigo-600 border-gray-300 rounded mr-2"
-                        />
                       Size
                     </th>
 
 
                     <th
+                      onClick={()=> setColorwayTitle(!colorwayTitle)}
                       scope="col"
-                      className="px-6 my-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className={`${titleTitle ? "font-bold" : "font-light"} hover:cursor-pointer w-40 px-6 my-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider`}
                     >
-                         <input    
-                        type="checkbox"
-                        checked={colorwayTitle}
-                        onClick={()=> setColorwayTitle(!colorwayTitle)}
-                        className="h-4 w-4 text-indigo-600 border-gray-300 rounded mr-2"
-                        />
                       Color
                     </th>
                     
@@ -158,7 +121,7 @@ export default function Table({result, setResult, loading, upcTitle, setUpcTitle
                     <div className="flex items-center">
                         <div className="flex-shrink-0 h-10 w-10 ">
                             {res.image == "N/A" ? 
-                            <PhotographIcon className="h-8 w-8 rounded-full text-slate-400" />
+                            <PhotographIcon className="h-8 w-8 rounded-full  text-gray-500 opacity-80 pt-1 mt-1" />
                             :    
                             <img className="h-10 w-10 rounded-full" src={res.image} alt="" />
                         }

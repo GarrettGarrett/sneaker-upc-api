@@ -26,7 +26,7 @@ export default function SearchBar({query, setQuery, queue, setQueue, count, scan
 
     return (
       <div>
-        <div className="flex mt-1 border-b border-gray-300 focus-within:border-indigo-600">
+        <div className="flex mt-1 border-b border-gray-500 focus-within:border-indigo-600">
           <input
             ref={callbackRef}
             type="text"
