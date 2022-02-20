@@ -39,12 +39,16 @@ export default function Home({ count }) {
 
 
   useEffect(() => {
-    navigator.permissions.query({ name: "camera" }).then(res => {
-      if(res.state == "granted"){
-        setCamera(true)
-          // has permission
-      } 
-  });
+    
+    if (typeof window !== "undefined") {
+      navigator.permissions.query({ name: "camera" }).then(res => {
+        if(res.state == "granted"){
+          setCamera(true)
+            // has permission
+        } 
+    });
+
+    }
   }, [])
 
 
