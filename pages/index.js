@@ -44,15 +44,12 @@ export default function Home({ count }) {
         navigator.permissions.query({ name: "camera" }).then(res => {
           if(res.state == "granted"){
             setCamera(true)
-              // has permission
           } 
       });
-  
       }
     } catch (error) {
-      
+      setCamera(true)
     }
-    
   }, [])
 
 

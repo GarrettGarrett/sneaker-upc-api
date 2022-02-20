@@ -44,7 +44,7 @@ function BarcodeIndex({scanning, setScanning, setQueue, finalScanResult, setFina
         <div>
             <svg 
                  onClick={camera ? _scan : () => toast({
-                  title: `Check Your Camera Permissions`,
+                  title: `Enable Camera Permissions & Refresh`,
                   position: "top",
                   status: 'info',
                   isClosable: true,
