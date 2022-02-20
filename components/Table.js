@@ -1,11 +1,14 @@
 import { TrashIcon, PhotographIcon } from '@heroicons/react/outline'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { useEffect } from 'react';
 import { ClipboardIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
   
 
 
 export default function Table({result, setResult, loading, upcTitle, setUpcTitle, titleTitle, setTitleTitle, sizeTitle, setSizeTitle, colorwayTitle, setColorwayTitle, scanning, copyToClip, copy, setCopy }) {
 
+
+  
 
     function removeFromState(index){
         var array = result; // make a separate copy of the array
@@ -134,7 +137,7 @@ export default function Table({result, setResult, loading, upcTitle, setUpcTitle
                       <td className={`${!colorwayTitle ? 'opacity-0' : null } px-6 py-4 whitespace-nowrap text-sm text-gray-500`}>{res.color2}</td>
 
                     </tr>
-                  ))}
+                  )).reverse()}
 
                     <tr hidden={!loading}  key={123456789} className={'bg-white'}>     
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{
