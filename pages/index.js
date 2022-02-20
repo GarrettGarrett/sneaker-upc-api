@@ -23,9 +23,9 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Home({ count }) {
-  const [query, setQuery] = useState()
+  const [query, setQuery] = useState() // UPC to be searched
   const [loading, setLoading] = useState(false) //turns guide box green
-  const [result, setResult] = useState([])
+  const [result, setResult] = useState([]) 
   const [queue, setQueue] = useState([])
   const [copy, setCopy] = useState(true)
   const [upcTitle, setUpcTitle] = useState(true)
