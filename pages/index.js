@@ -25,14 +25,14 @@ export async function getStaticProps({ params }) {
 export default function Home({ count }) {
   const [query, setQuery] = useState() // UPC to be searched
   const [loading, setLoading] = useState(false) //turns guide box green
-  const [result, setResult] = useState([]) 
-  const [queue, setQueue] = useState([])
+  const [result, setResult] = useState([]) // all results from mongoDB
+  const [queue, setQueue] = useState([]) //array of queries
   const [copy, setCopy] = useState(true)
-  const [upcTitle, setUpcTitle] = useState(true)
-  const [titleTitle, setTitleTitle] = useState(true)
-  const [sizeTitle, setSizeTitle] = useState(true)
-  const [colorwayTitle, setColorwayTitle] = useState(true)
-  const [scanning, setScanning] = useState(false)
+  const [upcTitle, setUpcTitle] = useState(true) //upc title filter in table
+  const [titleTitle, setTitleTitle] = useState(true) //title title filter in table 
+  const [sizeTitle, setSizeTitle] = useState(true) //size title filter in table
+  const [colorwayTitle, setColorwayTitle] = useState(true) //color title filter in table
+  const [scanning, setScanning] = useState(false) 
   const [finalScanResult, setFinalScanResult] = useState(false)
   const [camera, setCamera] = useState(false) //if user has camera permissions enabled
 
@@ -68,11 +68,11 @@ export default function Home({ count }) {
       setLoading(false)   
       setFinalScanResult(false)//turn off green color   
     }
-}
+  }
 
-useEffect(() => {
-  searchMongoDB(queue.slice(-1)[0] ) //search 1st upc in queue
-}, [queue])
+  useEffect(() => {
+    searchMongoDB(queue.slice(-1)[0] ) //search 1st upc in queue
+  }, [queue])
 
 
   function copyToClip() { //returns string that can be copied into excel
@@ -84,7 +84,6 @@ useEffect(() => {
         returnSting += '\n' + entry
       }
     })
-    console.log("🚀 ~ file: index.js ~ line 67 ~ copyToClip ~ returnSting", returnSting)
     return returnSting
   }
 
@@ -92,7 +91,6 @@ useEffect(() => {
   return (
     <>
  
-
        <h1 className="pt-5 font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black">Sneaker Barcode Reader</h1>
        <p class="text-gray-600  pb-5">👟 Create Inventory Lists then Paste Into Excel, Notes, etc.</p>
 
@@ -104,14 +102,12 @@ useEffect(() => {
         {scanning && camera ? <div className={` top-24 left-6  w-72 h-36 rounded-lg sm:left-6 ${finalScanResult ? 'border-green-500  border-4': 'border-white border-2'} relative `}></div> : null}
 
 
-          <div className={`${scanning ? 'pt-48' : null}`}>
+        <div className={`${scanning ? 'pt-48' : null}`}>
 
 
-          <Table setCopy={setCopy} copy={copy} copyToClip={copyToClip} scanning={scanning} result={result.reverse()} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
-          </div>
+        <Table setCopy={setCopy} copy={copy} copyToClip={copyToClip} scanning={scanning} result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
+        </div>
          
-          
-
   </>
   
   )
