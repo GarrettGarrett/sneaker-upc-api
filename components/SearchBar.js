@@ -38,7 +38,7 @@ export default function SearchBar({query, setQuery, queue, setQueue, count, scan
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
           />
-          <span className="m-2">
+          <span className="m-1">
             <BarcodeIndex camera={camera} searchMongoDB={searchMongoDB} finalScanResult={finalScanResult} setFinalScanResult={setFinalScanResult} setQueue={setQueue} scanning={scanning} setScanning={setScanning}/>
           </span>
          
