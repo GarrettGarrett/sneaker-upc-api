@@ -3,7 +3,7 @@ import moment from 'moment'
   export default function RecentList({latest}) {
 
     function getMoment(date) {
-        return moment(date).fromNow()
+        return moment(date).add(7, 'hours').fromNow()
     }
 
 
