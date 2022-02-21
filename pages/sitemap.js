@@ -20,11 +20,7 @@ function sitemap() {
     
         <div className='h-screen'>
           <h1 className="pt-5 font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black">Site Map</h1>
-
-
-          <SitemapTimeline />
-
-          
+          <SitemapTimeline />          
         </div>
     
     </>

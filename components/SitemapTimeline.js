@@ -34,7 +34,7 @@ function classNames(...classes) {
 
 export default function SitemapTimeline() {
   return (
-    <div className="mt-10 low-root">
+    <div className="mt-8 low-root">
       <ul role="list" className="-mb-8">
         {timeline.map((event, eventIdx) => (
           
