@@ -50,7 +50,7 @@ const [toSend, setToSend] = useState({
    
     <div>
         
-        <form onSubmit={onSubmit} className="relative mt-36 mb-4 ">
+        <form onSubmit={onSubmit} className="relative mt-36 mb-4 text-xs">
             <input 
             type="text" 
             name='message'
