@@ -6,20 +6,20 @@ export default async (req, res) => {
     
     if (req.method === 'POST') {
         let { upc } = req.body
-        console.log("🚀 ~ file: upc.js ~ line 9 ~ upc", upc)
+        // console.log("🚀 ~ file: upc.js ~ line 9 ~ upc", upc)
         
         const { db } = await connectToDatabase();
         const mongo_response = await db.collection('sneakers').find({$or:[{"upc":upc},{"upc":"'" + upc}]}).toArray()
         
         const count = await db.collection("sneakers").count()
-        console.log("🚀 ~ file: upc.js ~ line 14 ~ count", count)
+        // console.log("🚀 ~ file: upc.js ~ line 14 ~ count", count)
         
         if (mongo_response) {
-            console.log("🚀 ~ file: upc.js ~ line 17 ~ mongo_response", mongo_response)
+            // console.log("🚀 ~ file: upc.js ~ line 17 ~ mongo_response", mongo_response)
 
             if (mongo_response?.length){
                 let sneaker = mongo_response[0]
-                console.log("🚀 ~ file: upc.js ~ line 18 ~ sneaker", sneaker)
+                // console.log("🚀 ~ file: upc.js ~ line 18 ~ sneaker", sneaker)
                 return res.status(200).json({ sneaker })
             }
 

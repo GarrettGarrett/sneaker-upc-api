@@ -63,7 +63,7 @@ export default function Home({ count }) {
         body: JSON.stringify({upc: userQuery}) 
       })
       let {sneaker} = await mongoResult.json()
-      console.log("🚀 ~ file: index.js ~ line 23 ~ searchMongoDB ~ sneaker", sneaker)
+      // console.log("🚀 ~ file: index.js ~ line 23 ~ searchMongoDB ~ sneaker", sneaker)
       setResult((oldArray) => [...oldArray, sneaker]) //add to queue
       setLoading(false)   
       setFinalScanResult(false)//turn off green color   

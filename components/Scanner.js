@@ -40,10 +40,9 @@ class Scanner extends Component {
   }
   componentWillUnmount() {
     if (this.props.scanning == true){
-        console.log("true")
+        // console.log("true")
         Quagga.stop();
       }
-      console.log("here")
   }
 
   _onDetected = result => {

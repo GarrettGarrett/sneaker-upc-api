@@ -17,7 +17,7 @@ export default function SearchBar({query, setQuery, queue, setQueue, count, scan
             let _query = query
             setQuery() //reset the query
             setQueue((oldArray) => [...oldArray, _query ]) //add to queue
-            console.log(queue)
+            // console.log(queue)
         }
       }
 

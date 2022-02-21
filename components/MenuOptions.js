@@ -20,15 +20,17 @@ const options = [
     return (
       <ul role="list" className="">
         {options.map((option) => (
+          <Link key={option.name} href={option.href}>
           <li 
           onClick={() => {onClose()}}
           key={option.name} className=" hover:cursor-pointer py-4 flex border-b border-gray-200">
-            <Link href={option.href}>
-                <div className="ml-3 ">
-                <p className="text-sm font-medium text-gray-900 ">{option.name}</p>
+            
+                <div key={option.name} className="ml-3 ">
+                <p key={option.name} className="text-sm font-medium text-gray-900 ">{option.name}</p>
                 </div>
-            </Link>
+            
           </li>
+          </Link>
         ))}
       </ul>
     )

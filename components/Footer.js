@@ -31,12 +31,12 @@ const [toSend, setToSend] = useState({
             process.env.USER_ID
         )
           .then((response) => {
-            console.log('SUCCESS!', response.status, response.text);
+            // console.log('SUCCESS!', response.status, response.text);
             setLoading(false)
             setBtnMsg("Thank You!")
           })
           .catch((err) => {
-            console.log('FAILED...', err);
+            // console.log('FAILED...', err);
             setLoading(false)
             setBtnMsg("Thank You!")
           });
@@ -44,7 +44,7 @@ const [toSend, setToSend] = useState({
     
   };
 
-  console.log(toSend.message.length)
+//   console.log(toSend.message.length)
 
   return (
    
