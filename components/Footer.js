@@ -58,7 +58,8 @@ const [toSend, setToSend] = useState({
             onChange={handleChange}
             aria-label="Email for newsletter" 
             placeholder="Suggestions, Feedback..." 
-            className="py-auto text-xs px-5 block w-full border-gray-300 rounded-md bg-white text-gray-600 pr-32"/>
+            className="
+             text-xs px-5 block w-full border-gray-300 rounded-md bg-white text-gray-600 pr-32"/>
             
             <button className={`text-white  w-1/3 md:w-1/4 px-5 text-xs hover:bg-gray-500 flex items-center justify-center absolute right-1 top-1 font-medium h-7 bg-blue-600 rounded w-28" type="submit`}>{ loading ?  
             
