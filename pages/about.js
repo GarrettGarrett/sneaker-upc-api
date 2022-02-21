@@ -1,18 +1,12 @@
 import React from 'react'
-import {
-    CloudUploadIcon,
-    CogIcon,
-    LockClosedIcon,
-    RefreshIcon,
-    ServerIcon,
-    ShieldCheckIcon,
-  } from '@heroicons/react/outline'
 
 
 const features = [
     { name: 'Handheld Scanner Support', img: '/scanner.png', body: 'Use a handheld scanner for faster and more accurate scans.' },
     { name: 'Mobile Phone Camera Support', img: "/iphone.png", body: 'Use the camera on your mobile device for barcode recognition.' },
     { name: 'Daily Updates', img: "/clock.png", body: 'Shoes are added to the database daily as new sneakers are released.' },
+    { name: 'Copy & Paste', img: "/copy.png", body: 'Copy the list of scanned sneaker data and paste into Excel, Notes, etc.' },
+    { name: 'Filter', img: "/filter.png", body: 'Click on the Table Headers to filter columns on/off.' },
 
   ]
 
