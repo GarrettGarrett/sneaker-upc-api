@@ -4,7 +4,7 @@ import React from 'react'
 const features = [
     { name: 'Handheld Scanner Support', img: '/scanner.png', body: 'Use a handheld scanner for faster and more accurate scans.' },
     { name: 'Mobile Phone Camera Support', img: "/iphone.png", body: 'Use the camera on your mobile device for barcode recognition.' },
-    { name: 'Daily Updates', img: "/clock.png", body: 'Shoes are added to the database daily as new sneakers are released.' },
+    { name: 'Daily Updates', img: "/clock.png", body: 'Shoes are added to the database daily and as new sneakers are released.' },
     { name: 'Copy & Paste', img: "/copy.png", body: 'Copy the list of scanned sneaker data and paste into Excel, Notes, etc.' },
     { name: 'Filter', img: "/filter.png", body: 'Click on the Table Headers to filter columns on/off.' },
 
@@ -14,7 +14,7 @@ function about() {
   return (
       <>
        <h1 className="pt-5 font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black">About</h1>
-        <p class="text-gray-600  pb-5 pt-2">🔎 This tool was created after searching Google for "StockX Scanner" and finding no results.  My hope is this tool can make inventory management easer for fellow sneaker resellers.</p>
+        <p className="text-gray-600  pb-5 pt-2">🔎 This tool was created after searching Google for "StockX Scanner" and finding no results.  My hope is this tool can make inventory management easer for fellow sneaker resellers.</p>
 
 
 

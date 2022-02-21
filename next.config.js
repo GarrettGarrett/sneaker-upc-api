@@ -27,6 +27,12 @@ module.exports = {
     MONGODB_URI: process.env.MONGODB_URI,
     MONGODB_DB: process.env.MONGODB_DB,
     SITE_URL: process.env.SITE_URL,
+    TEMPLATE_ID: process.env.TEMPLATE_ID,
+    USER_ID: process.env.USER_ID,
+    FROM_NAME: process.env.FROM_NAME,
+    REPLY_TO: process.env.REPLY_TO,
+    SERVICE_ID: process.env.SERVICE_ID,
+
   },
 }
 
