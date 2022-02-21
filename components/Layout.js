@@ -1,5 +1,5 @@
 import Menu from '../components/Menu'
-import Footer from '../components/Footer'
+import Footer2 from './Footer2'
 
 function Layout({ children }) {
     return (
@@ -8,7 +8,7 @@ function Layout({ children }) {
           <div className="max-w-3xl mx-auto ">
                 <Menu />
                     { children }
-                <Footer />
+                <Footer2 />
             </div>
       </div>
       
