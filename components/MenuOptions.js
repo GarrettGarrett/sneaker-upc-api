@@ -9,6 +9,10 @@ const options = [
       name: 'Recently Added',
       href: '/recent'
     },
+    {
+      name: 'About',
+      href: '/about'
+    },
     
   ]
   

@@ -89,10 +89,10 @@ export default function Home({ count }) {
 
 
   return (
-    <>
+    <div className='h-screen'>
  
        <h1 className="pt-5 font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black">Sneaker Barcode Reader</h1>
-       <p class="text-gray-600  pb-5">👟 Create Inventory Lists then Paste Into Excel, Notes, etc.</p>
+       <p class="text-gray-600  pb-5 pt-2">👟 Begin by scanning any sneaker barcode</p>
 
 
         <SearchBar camera={camera} searchMongoDB={searchMongoDB} finalScanResult={finalScanResult} setFinalScanResult={setFinalScanResult} setQueue={setQueue} setScanning={setScanning} scanning={scanning} count={count} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
@@ -108,7 +108,7 @@ export default function Home({ count }) {
         <Table setCopy={setCopy} copy={copy} copyToClip={copyToClip} scanning={scanning} result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
         </div>
          
-  </>
+  </div>
   
   )
 
