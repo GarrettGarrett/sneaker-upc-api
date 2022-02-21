@@ -60,7 +60,7 @@ const [toSend, setToSend] = useState({
             placeholder="Suggestions, Feedback..." 
             className="px-4 py-2 mt-1  block w-full border-gray-300 rounded-md bg-white text-gray-600 pr-32"/>
             
-            <button className={`flex text-white  w-1/3 md:w-1/4 px-5 text-xs hover:bg-gray-500 flex items-center justify-center absolute right-1 top-1 font-medium h-8 bg-gray-100 bg-gray-700 rounded w-28" type="submit`}>{ loading ?  
+            <button className={`flex text-white  w-1/3 md:w-1/4 px-5 text-xs hover:bg-gray-500 flex items-center justify-center absolute right-1 top-1 font-medium h-8 bg-blue-600 rounded w-28" type="submit`}>{ loading ?  
             
             <svg className="animate-spin  ml-1.5 h-4 w-4 text-white mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
