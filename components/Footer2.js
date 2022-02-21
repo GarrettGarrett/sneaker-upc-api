@@ -4,9 +4,10 @@ import Link from 'next/link';
 
 const navigation = {
     main: [
-      { name: 'StockX Scanner', href: '/stockxscanner' },
+      { name: 'Home', href: '/stockxscanner' },
       { name: 'About', href: '/about' },
-      { name: 'Recently Added', href: '/recent' },
+      { name: 'Recents', href: '/recent' },
+      { name: 'Sitemap', href: '/sitemap' },
 
     ],
     
