@@ -32,7 +32,7 @@ const navigation = {
            
            <FeedBack />
           </div>
-          {/* <p className="mt-2 text-center text-base text-gray-400">{`&copy; ${new Date().getFullYear()} Workflow, Inc. All rights reserved.`}</p> */}
+         
         </div>
       </footer>
     )
