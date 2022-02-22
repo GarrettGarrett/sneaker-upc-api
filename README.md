@@ -1,27 +1,56 @@
-# Next.js + Tailwind CSS Example
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+<h1 align="center">
+  <br>
+  <a href="https://www.sneakerscan.io/"><img src="public/logo.png" width="200" alt="StockX Scanner" ></a>
+  <br>
+  StockX Scanner
+  <br>
+</h1>
 
-## Preview
+<h4 align="center">Scan StockX Barcodes To Create Inventory Lists For Your Sneaker Reselling Business.</h4>
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
 
-## Deploy your own
+<p align="center">
+  <a href="#demo">Demo</a> •
+  <a href="#key-features">Key Features</a> •
+  <a href="#APIs-used">APIs Used</a> •
+  <a href="#Built-with">Built With</a> •
+  <a href="#Instagram">Instagram</a>
+</p>
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+![screenshot](public/home.png)
+![screenshot](public/recent.png)
+![screenshot](public/about.png)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+## Demo
 
-## How to use
+* View [here](https://www.sneakerscan.io/)
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+## Key Features
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+* Quickly create inventory lists by scanning the barcode on your sneakers.
+* Copy and paste into Excel, notes, etc.
+* A Python script is running 24/7 to grow the barcode database.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+
+## APIs Used
+
+* I built my own API using Python to crawl the web and collect data which is then stored is MongoDB.
+
+## Instagram
+
+* [Instagram account](https://www.instagram.com/stockxscanner/) for Sneakscan.io
+
+
+## Built With
+![screenshot](public/techstack.png)
+
+* JavaScript
+* Python
+* Next.js
+* Tailwind CSS
+* Vercel
+* MongoDB
+
+

@@ -22,7 +22,7 @@ function about() {
         </Head>
 
        <h1 className="pt-5 font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black">About</h1>
-        <p className="text-gray-600  pb-5 pt-2">🔎 This tool was created after searching Google for "StockX Scanner" and finding no results.  My hope is this tool can make inventory management easier for fellow sneaker resellers.</p>
+        <p className="text-gray-600  pb-5 pt-2">🔎  This tool was created after searching Google for "StockX Scanner" and finding no results.  My hope is this tool can make inventory management easier for fellow sneaker resellers.</p>
 
 
 
