@@ -7,7 +7,7 @@ const features = [
     { name: 'Handheld Scanner Support', img: '/scanner.png', body: 'Use a handheld scanner for faster and more accurate scans.', alt: 'StockX Scanner' },
     { name: 'Mobile Phone Camera Support', img: "/iphone.png", body: 'Use the camera on your mobile device for barcode recognition.', alt: "iphone scanner" },
     { name: 'Daily Updates', img: "/clock.png", body: 'Shoes are added to the database daily and as new sneakers are released.', alt: "daily updates" },
-    { name: 'Copy & Paste', img: "/copy.png", body: 'Copy the list of scanned sneaker data and paste into Excel, Notes, etc.', alt: "copy and paste" },
+    { name: 'Copy & Paste', img: "/copy.png", body: 'Use the Copy Icon in the table header to copy and paste into Excel, Notes, etc.', alt: "copy and paste" },
     { name: 'Filter', img: "/filter.png", body: 'Click on the Table Headers to filter columns on and off.', alt: "on and off" },
 
   ]
