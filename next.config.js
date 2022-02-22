@@ -41,6 +41,7 @@ module.exports = {
     FROM_NAME: process.env.FROM_NAME,
     REPLY_TO: process.env.REPLY_TO,
     SERVICE_ID: process.env.SERVICE_ID,
+    NEXT_PUBLIC_GOOGLE_ANALYTICS: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS,
 
   },
 }
