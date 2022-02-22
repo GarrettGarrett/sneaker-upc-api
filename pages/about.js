@@ -53,9 +53,3 @@ function about() {
 
 export default about
 
-
-// About
-// I made this tool after finding no results in Google for "StockX Scanner".  My hope is that this tool can be useful to others for quickly scanning shoes into their inventory.  
-
-// How To Use
-// Connect your own handheld barcode scanner or use your device's camera to scan barcodes.  The barcode queried against my sneaker database for details on that shoe.  
