@@ -6,7 +6,7 @@ const navigation = {
     main: [
       { name: 'Home', href: '/stockxscanner' },
       { name: 'About', href: '/about' },
-      { name: 'Recents', href: '/recent' },
+      { name: 'Recent', href: '/recent' },
       { name: 'Sitemap', href: '/sitemap' },
 
     ],

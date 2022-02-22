@@ -14,11 +14,22 @@ import { ClipboardIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
 const fetcher = url => fetch(url).then(r => r.json())
 
 export default function Home() {
+
+  const defaultResult = {
+    upc: "887223552130",
+    size: "10",
+    brand: "Air Jordan",
+    title: "Off-White x Air Jordan 1 Retro High OG 'Chicago'",
+    color2: "White/Black-Varsity Red-Black",
+    styleID: "styleID",
+    image: "https://image.goat.com/1000/attachments/product_template_pictures/images/008/654/413/original/136666_00.png.png"
+
+  }
   
   const { data, error } = useSWR('/api/getCount', fetcher)
   const [query, setQuery] = useState() // UPC to be searched
   const [loading, setLoading] = useState(false) //turns guide box green
-  const [result, setResult] = useState([]) // all results from mongoDB
+  const [result, setResult] = useState([defaultResult]) // all results from mongoDB
   const [queue, setQueue] = useState([]) //array of queries
   const [copy, setCopy] = useState(true)
   const [upcTitle, setUpcTitle] = useState(true) //upc title filter in table
