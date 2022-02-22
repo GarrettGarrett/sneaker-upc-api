@@ -48,7 +48,7 @@ const [toSend, setToSend] = useState({
 
   return (
    
-    <div>
+    <div className='pt-4'>
         
         <form onSubmit={onSubmit} className="sm:flex sm:max-w-md">
             <input 
