@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"]
+    });
+
+    return config;
+  },
   async redirects() {
     return [
       {
@@ -44,6 +52,7 @@ module.exports = {
     NEXT_PUBLIC_GOOGLE_ANALYTICS: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS,
 
   },
+  
 }
 
 

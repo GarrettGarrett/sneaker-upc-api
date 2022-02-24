@@ -2,12 +2,6 @@ import React from 'react'
 import Head from 'next/head'
 import SitemapTimeline from '../components/SitemapTimeline'
 
-
-
-
-
-
-
 function sitemap() {
   return (
 

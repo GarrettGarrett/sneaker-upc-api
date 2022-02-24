@@ -17,7 +17,6 @@ export async function getStaticProps({ params }) {
   }
 
 function Recent({latest}) {
-  // console.log("🚀 ~ file: Recent.js ~ line 17 ~ Recent ~ latest", latest)
   
   
   return (

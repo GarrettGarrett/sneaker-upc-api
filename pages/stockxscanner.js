@@ -10,7 +10,6 @@ import { ClipboardIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
 
 
 
-
 const fetcher = url => fetch(url).then(r => r.json())
 
 export default function Home() {
@@ -97,6 +96,7 @@ export default function Home() {
           <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👟</text></svg>"/>
         </Head>
 
+
         <div className='h-screen'>
           <h1 className="pt-5 font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black">StockX Scanner</h1>
           <p className="text-gray-600  pb-5 pt-2">👟 Begin by scanning any sneaker barcode</p>
@@ -106,6 +106,8 @@ export default function Home() {
         
           <Camera camera={camera} scanning={scanning} finalScanResult={finalScanResult}/>
 
+          
+           
           <div className={`${scanning ? 'pt-48' : null}`}>
             <Table setCopy={setCopy} copy={copy} copyToClip={copyToClip} scanning={scanning} result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
           </div>
