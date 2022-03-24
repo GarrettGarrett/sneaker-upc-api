@@ -4,8 +4,8 @@ import ArrowSVG from '../components/ArrowSVG'
 
 const boxes = [
     {id: 0, buttonText: "VISIT HOME PAGE", href: "/stockxscanner", src: "/homedark.png"},
-    {id: 2, buttonText: "VISIT ABOUT PAGE", href: "recent", src: "/aboutdark.png"},
-    {id: 1, buttonText: "VISIT RECENTLY ADDED", href: "/about", src: "/recentdark.png"},
+    {id: 2, buttonText: "VISIT ABOUT PAGE", href: "about", src: "/aboutdark.png"},
+    {id: 1, buttonText: "VISIT RECENTLY ADDED", href: "/recent", src: "/recentdark.png"},
 ]
 
 
