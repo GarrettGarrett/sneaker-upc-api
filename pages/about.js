@@ -28,8 +28,9 @@ function about() {
         <div className="bg-black mx-auto px-7 sm:px-20 lg:px-8">
           <div className=" max-w-6xl mx-auto ">
 
+<div className='min-h-screen'>
 
-          <h1 className="relative pt-6 text-2xl font-extrabold leading-snug  uppercase lg:text-5xl tracking-widest font-display text-left">About</h1>
+<h1 className="relative pt-6 text-2xl font-extrabold leading-snug  uppercase lg:text-5xl tracking-widest font-display text-left">About</h1>
         
 
         <p className="w-full text-opacity-90 pt-2 tracking-wide max-w-lg  mb-2 text-lg font-thin leading-tight text-white lg:mx-0 fade-color lg:mb-4 font-display lg:text-lg xl:text-lg lg:text-left lg:pr-6">🔎  This tool was created after searching Google for "StockX Scanner" and finding no results.  My hope is this tool can make inventory management easier for fellow sneaker resellers.</p>
@@ -53,8 +54,10 @@ function about() {
                   </div>
                 </div>
               </div>
-            ))}
+            ))} 
           </div>
+</div>
+        
 
 
 
