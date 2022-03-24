@@ -63,7 +63,7 @@ export default function Home() {
   function copyToClip(selectedArray) { //returns string that can be copied into excel
     let returnSting = ''
     selectedArray.forEach(item => {    
-      if (typeof item.upc != 'undefined'){ //this skips over deleted entries
+      if (typeof item?.date != 'undefined'){ //this skips over deleted entries
         const tab = "\t"
           let entry = 
           (upcTitle ? (item.upc) + tab : "") + 

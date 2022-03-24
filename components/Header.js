@@ -34,9 +34,11 @@ export default function Header({hideGetStarted, bgColor}) {
           <div className="-mr-2 -my-2 md:hidden focus:ring-transparent">
             <Popover.Button className="focus:ring-transparent">
               <span className="sr-only">Open menu</span>
-              <MenuAlt4Icon
-                onClick={()=> setMobileOpen(!mobileOpen)}
-                className="mt-3 mr-6 h-11 w-11 text-white focus:ring-transparent" aria-hidden="true" />
+              <button>
+                <MenuAlt4Icon
+                  onClick={()=> setMobileOpen(!mobileOpen)}
+                  className="mt-3 mr-6 h-11 w-11 text-white focus:ring-transparent" aria-hidden="true" />
+              </button>
             </Popover.Button>
 
             

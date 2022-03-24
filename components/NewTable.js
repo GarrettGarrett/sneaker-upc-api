@@ -260,7 +260,13 @@ export default function NewTable({
                           `${titleTitle ? " " : "opacity-0 "}`
                         )}
                       >
-                          <img className="h-10 w-10 rounded-full" src={person.image} alt="" />
+                          
+                          {person.image == "N/A" ? 
+                            <PhotographIcon className="h-8 w-8 rounded-full  text-white  opacity-80 pr-1 mr-1 ml-1" />
+                            :    
+                            <img className="h-10 w-10 rounded-full" src={person.image} alt="" />
+                        }
+                        
 
                         <span className='pt-[9px] pl-3'>{person.title}</span>
                         
@@ -284,7 +290,7 @@ export default function NewTable({
                         </a>
                       </td>
                     </tr>
-                  ))}
+                   )).reverse()}
                 </tbody>
               </table>
             </div>
