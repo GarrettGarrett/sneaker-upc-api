@@ -26,7 +26,8 @@ function ScanSection() {
       return (optionalAdd + (1 - (currentOffsetY - minOffsetY) / (maxOffsetY - minOffsetY))) //to fade out
     }
     function returnZeroToOneBasedOnMinMaxCurrentREVERSED(minOffsetY, maxOffsetY, currentOffsetY, optionalAdd=0){
-      return (optionalAdd + (currentOffsetY - minOffsetY) / (maxOffsetY - minOffsetY)) //to fade in
+      return  (optionalAdd + (currentOffsetY - minOffsetY) / (maxOffsetY - minOffsetY)) //to fade in
+      
     }
 
 
@@ -35,7 +36,7 @@ function ScanSection() {
     <>
 
         {/* <div className="text-white">{offsetY}</div> */}
-        <div className=" relative z-10 px-4 pt-0  text-white mt-52">
+        <div className="pb-6 overflow-hidden relative z-10 px-4 pt-0  text-white mt-52">
 
           <VisibilitySensor partialVisibility offset={{ bottom: 200 }} className=''>
           {({ isVisible }) => (
@@ -69,19 +70,19 @@ function ScanSection() {
             </div>
             <div className="relative ">
               <div 
-                  style={{ transform: `translateY(-${offsetY >= 2400 && offsetY <= 4000 && offsetY - 2550}px) scale(${returnZeroToOneBasedOnMinMaxCurrentREVERSED(2400, 3291, offsetY, .5)})`,
+                  style={{ transform: `translateY(-${offsetY >= 2400 && offsetY <= 4000 && offsetY - 2700}px) scale(${returnZeroToOneBasedOnMinMaxCurrentREVERSED(2400, 3291, offsetY, .5)})`,
                   opacity: returnZeroToOneBasedOnMinMaxCurrent(2400, 3291, offsetY),
                   // transform: 
                 }}
-                  className={`${offsetY > 2900 && "hidden"} m-auto max-w-5xl absolute inset-0 bg-red-600 rounded-full removedblur-md`}>
+                  className={`${offsetY > 3200 && "hidden"} m-auto max-w-5xl absolute inset-0 bg-red-600 rounded-full removedblur-md`}>
               </div>
 
             <div 
-            style={{ transform: `translateY(-${offsetY >= 2400 && offsetY <= 4000 && offsetY - 2550}px) scale(${returnZeroToOneBasedOnMinMaxCurrentREVERSED(2400, 3291, offsetY, .5)})`,
+            style={{ transform: `translateY(-${offsetY >= 2400 && offsetY <= 4000 && offsetY - 2700}px) scale(${returnZeroToOneBasedOnMinMaxCurrentREVERSED(2400, 3291, offsetY, .5)})`,
                       opacity: returnZeroToOneBasedOnMinMaxCurrent(2400, 3291, offsetY),
                       // transform: 
                     }}
-            className={`${offsetY > 2900 && "hidden"} m-auto relative max-w-5xl h-10 bg-red-600 rounded-full mt-24 bg-blue`}></div>
+            className={`${offsetY > 3200 && "hidden"} m-auto relative max-w-5xl h-10 bg-red-600 rounded-full mt-24 bg-blue`}></div>
             </div>
             
         </div>

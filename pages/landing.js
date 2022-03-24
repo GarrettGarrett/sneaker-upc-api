@@ -67,7 +67,7 @@ const Home = () => {
 
   {/* <div className="h-32 sm:bg-blue-700 md:bg-red-700 lg:bg-purple-700 text-white">sm=blue md=red lg=purple</div> */}
 
-  <div className='h-[450px] sm:hidden '></div>
+  <div className='h-[150px] sm:hidden '></div>
   <div className='pt-0 sm:pt-[600px]'>
     <Slider />
   </div>
