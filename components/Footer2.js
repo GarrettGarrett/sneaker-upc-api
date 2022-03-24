@@ -21,7 +21,7 @@ const navigation = {
             {navigation.main.map((item) => (
               <div key={item.name} className="px-4 py-2">
                   <Link href={item.href} >
-                  <a className="text-base text-gray-500 hover:text-gray-900">
+                  <a className="text-base text-white opacity-70 hover:opacity-100">
                   {item.name}
                 </a>
                   </Link>
