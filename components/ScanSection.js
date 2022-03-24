@@ -94,7 +94,7 @@ function ScanSection() {
             </div>
             
         </div>
-        <div className="text-white">{offsetY}</div>
+        {/* <div className="text-white">{offsetY}</div> */}
     </>
   )
 }
