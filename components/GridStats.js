@@ -34,7 +34,8 @@ function GridStats() {
                             <div  className="mb-2 -mt-16">
                                 <div className="flex flex-col items-center w-full max-w-sm p-2 text-center transition duration-500 ease-in-out transform scale-100 xl:px-6 bg-gray-980 lg:mx-4 shadow-new rounded-xl lg:items-start md:my-2 group">
                                     <div className="h-full p-10 flex items-center justify-center w-full -mt-8 text-black">
-                                        <GridExportSVG />
+                                        {/* <GridExportSVG /> */}
+                                        <img src="/export.png" alt="" />
                                     </div>
 
                                     <div className="inline-block w-full px-2 -mt-20 text-xl antialiased font-bold leading-snug text-center text-white md:text-2xl md:px-4 font-display">Export
@@ -50,7 +51,8 @@ function GridStats() {
                             <div  className="mb-2 -mt-16">
                                 <div className="flex flex-col items-center w-full max-w-sm p-2 text-center transition duration-500 ease-in-out transform scale-100 xl:px-6  lg:mx-4  rounded-xl  ">
                                     <div className="h-full p-10 flex items-center justify-center w-full -mt-8 text-black">
-                                        <GridUpdateSVG />
+                                        {/* <GridUpdateSVG /> */}
+                                        <img src="/update.png" alt="" />
                                     </div>
                             
                                     <div className="inline-block w-full px-2 -mt-20 text-xl antialiased font-bold leading-snug text-center text-white md:text-2xl md:px-4 font-display">Daily Updates
@@ -68,7 +70,8 @@ function GridStats() {
                                     <div className="h-full p-10 flex items-center justify-center w-full -mt-8 text-black">
                                         {/* <InfinitySVG /> */}
                                         {/* <HandScanSVG /> */}
-                                        <HandScan />
+                                        {/* <HandScan /> */}
+                                        <img src="/handscan.png" alt="" />
                                     </div>
                             
                                     <div className="inline-block w-full px-2 -mt-20 text-xl antialiased font-bold leading-snug text-center text-white md:text-2xl md:px-4 font-display">Handheld Scanner Support
@@ -84,7 +87,8 @@ function GridStats() {
                             <div  className="mb-2 -mt-16">
                                 <div className="flex flex-col items-center w-full max-w-sm p-2 text-center transition duration-500 ease-in-out transform scale-100 xl:px-6 bg-gray-980 lg:mx-4 shadow-new rounded-xl lg:items-start md:my-2 group">
                                     <div className="h-full p-10 flex items-center justify-center w-full -mt-8 text-black">
-                                        <FilterSVG />
+                                        {/* <FilterSVG /> */}
+                                        <img src="/filtericon.png" alt="" />
                                     </div>
                             
                                     <div className="inline-block w-full px-2 -mt-20 text-xl antialiased font-bold leading-snug text-center text-white md:text-2xl md:px-4 font-display">Filter

@@ -16,28 +16,28 @@ function LogoCloud() {
                     <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
                         <img
                             className="h-12 w-auto"
-                            src="/yeezy.png"
+                            src="/Yeezy.png"
                             alt="yeezy"
                             />
                     </div>
                     <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
                         <img
                             className="h-12 w-auto"
-                            src="/nike.png"
+                            src="/Nike.png"
                             alt="nike"
                             />
                     </div>
                     <div className="col-span-1 flex justify-center md:col-span-3 lg:col-span-1">
                         <img
                             className="h-12 w-auto"
-                            src="/adidas.png"
+                            src="/Adidas.png"
                             alt="adidas"
                             />
                     </div>
                     <div className="col-span-2 flex justify-center md:col-span-3 lg:col-span-1">
                         <img
                             className="h-12 w-auto"
-                            src="/newbalance.png"
+                            src="/NewBalance.png"
                             alt="newbalance"
                             />
                     </div>
