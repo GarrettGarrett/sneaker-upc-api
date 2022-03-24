@@ -45,7 +45,7 @@ function CollapsableTier() {
                             }}
                            
                              className={`
-                                ${selected == box.id ? "h-[15vh] sm:h-64" : "h-[15vh] sm:h-36"}
+                                ${selected == box.id ? "h-[25vh] sm:h-64" : "h-[25vh] sm:h-36"}
                                 group mb-4 relative border border-white border-opacity-20 rounded-xl  w-full lg:w-10/12 
                                 ease-in-out duration-300
                                 hover:border-opacity-100
