@@ -73,7 +73,7 @@ function ScanSection() {
                   opacity: returnZeroToOneBasedOnMinMaxCurrent(2400, 3291, offsetY),
                   // transform: 
                 }}
-                  className={`${offsetY > 2900 && "hidden"} m-auto max-w-5xl absolute inset-0 bg-red-600 rounded-full blur-md`}>
+                  className={`${offsetY > 2900 && "hidden"} m-auto max-w-5xl absolute inset-0 bg-red-600 rounded-full removedblur-md`}>
               </div>
 
             <div 
