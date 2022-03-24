@@ -3,7 +3,8 @@ import{ AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
 import Layout from '../components/Layout'
 import Script from 'next/script'
-
+import { AppWrapper } from '../context/contextState'
+import {ThemeProvider} from 'next-themes'
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -25,12 +26,16 @@ function MyApp({ Component, pageProps }) {
                     `}
           </Script>  
 
+      <ThemeProvider attribute="class">
+        {/* <ChakraProvider> */}
+            <Layout>
+              <AppWrapper>
+                <Component {...pageProps} />   
+              </AppWrapper>
+            </Layout>
+        {/* </ChakraProvider> */}
+      </ThemeProvider>
 
-      <ChakraProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-      </ChakraProvider>
     </>
     
   )

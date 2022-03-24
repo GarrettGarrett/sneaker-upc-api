@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+// /** @type {import('next').NextConfig} */
 module.exports = {
   webpack(config) {
     config.module.rules.push({
@@ -8,15 +8,7 @@ module.exports = {
 
     return config;
   },
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/stockxscanner',
-        permanent: true,
-      },
-    ]
-  },
+
   webpack(config, options) {
     const { isServer } = options;
     config.module.rules.push({

@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-
-
+import Footer2 from '../components/Footer2'
+import Header from '../components/Header'
 
 const features = [
     { name: 'Handheld Scanner Support', img: '/scanner.png', body: 'Use a handheld scanner for faster and more accurate scans.', alt: 'StockX Scanner' },
@@ -21,23 +21,33 @@ function about() {
             <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👟</text></svg>"/>
         </Head>
 
-       <h1 className="pt-5 font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black">About</h1>
-        <p className="text-gray-600  pb-5 pt-2">🔎  This tool was created after searching Google for "StockX Scanner" and finding no results.  My hope is this tool can make inventory management easier for fellow sneaker resellers.</p>
+        <div className='sticky top-0 z-50'>
+          <Header hideGetStarted={true} bgColor={"bg-black"}/>
+        </div>
+
+        <div className="bg-black mx-auto px-7 sm:px-20 lg:px-8">
+          <div className=" max-w-6xl mx-auto ">
+
+
+          <h1 className="relative pt-6 text-2xl font-extrabold leading-snug  uppercase lg:text-5xl tracking-widest font-display text-left">About</h1>
+        
+
+        <p className="w-full text-opacity-90 pt-2 tracking-wide max-w-lg  mb-2 text-lg font-thin leading-tight text-white lg:mx-0 fade-color lg:mb-4 font-display lg:text-lg xl:text-lg lg:text-left lg:pr-6">🔎  This tool was created after searching Google for "StockX Scanner" and finding no results.  My hope is this tool can make inventory management easier for fellow sneaker resellers.</p>
 
 
 
         <div className="pt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature) => (
               <div key={feature.name} className="pt-6">
-                <div className="flow-root bg-gray-50 rounded-lg px-6 pb-8">
+                <div className="flow-root bg-darkish rounded-lg px-6 pb-8">
                   <div className="-mt-6">
                     <div>
                       <span className="inline-flex items-center justify-center p-3 bg-blue-600 rounded-md shadow-lg">
                         <img alt={feature.alt} className="h-6 w-6 text-white" aria-hidden="true" src={feature.img}/>
                       </span>
                     </div>
-                    <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight">{feature.name}</h3>
-                    <p className="mt-5 text-base text-gray-500">
+                    <h3 className="mt-8 text-lg font-medium text-white tracking-tight">{feature.name}</h3>
+                    <p className="mt-5 text-base text-white">
                       {feature.body}
                     </p>
                   </div>
@@ -45,6 +55,13 @@ function about() {
               </div>
             ))}
           </div>
+
+
+
+          </div>
+        </div>
+
+      <Footer2 />
       
       </>
    

@@ -7,7 +7,9 @@ import Menu from '../components/Menu'
 import { useState, useEffect } from 'react'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { ClipboardIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
-
+import NewTable from '../components/NewTable'
+import Header from '../components/Header'
+import Footer2 from '../components/Footer2'
 
 
 const fetcher = url => fetch(url).then(r => r.json())
@@ -15,14 +17,16 @@ const fetcher = url => fetch(url).then(r => r.json())
 export default function Home() {
 
   const defaultResult = {
+    _id: "14241234123412341234132",
     upc: "887223552130",
     size: "10",
+    date: "2017-09-06T23:59:59.999Z",
     brand: "Air Jordan",
     title: "Off-White x Air Jordan 1 Retro High OG 'Chicago'",
     color2: "White/Black-Varsity Red-Black",
-    styleID: "styleID",
-    image: "https://image.goat.com/1000/attachments/product_template_pictures/images/008/654/413/original/136666_00.png.png"
-
+    styleID: "aa3834 101",
+    image: "https://image.goat.com/1000/attachments/product_template_pictures/images/008/654/413/original/136666_00.png.png",
+    slug: "off-white-x-air-jordan-1-retro-high-og-aa3834-101"
   }
   
   const { data, error } = useSWR('/api/getCount', fetcher)
@@ -35,6 +39,11 @@ export default function Home() {
   const [titleTitle, setTitleTitle] = useState(true) //title title filter in table 
   const [sizeTitle, setSizeTitle] = useState(true) //size title filter in table
   const [colorwayTitle, setColorwayTitle] = useState(true) //color title filter in table
+  const [brandTitle, setBrandTitle] = useState(true)
+  const [dateTitle, setDateTitle] = useState(true)
+  const [styleIDTitle, setStyleIDTitle] = useState(true)
+  const [slugTitle, setSlugTitle] = useState(true)
+  const [imageTitle, setImageTitle] = useState(true)
   const [scanning, setScanning] = useState(false) 
   const [finalScanResult, setFinalScanResult] = useState(false)
   const [camera, setCamera] = useState(false) //if user has camera permissions enabled
@@ -43,23 +52,30 @@ export default function Home() {
   useEffect(() => {
     try {
       if (typeof window !== "undefined") {
-        navigator.permissions.query({ name: "camera" }).then(res => {
-          if(res.state == "granted"){
             setCamera(true)
-          } 
-      });
       }
     } catch (error) {
       setCamera(true)
     }
   }, [])
 
-  function copyToClip() { //returns string that can be copied into excel
+
+  function copyToClip(selectedArray) { //returns string that can be copied into excel
     let returnSting = ''
-    result.forEach(item => {    
+    selectedArray.forEach(item => {    
       if (typeof item.upc != 'undefined'){ //this skips over deleted entries
         const tab = "\t"
-        let entry = (upcTitle ? (item.upc) + tab : "") + (titleTitle ? item.title + tab : "") + (sizeTitle ?  item.size + tab : '') + (colorwayTitle ? item.color2 : '')
+          let entry = 
+          (upcTitle ? (item.upc) + tab : "") + 
+          (titleTitle ? item.title + tab : "") + 
+          (sizeTitle ?  item.size + tab : '') + 
+          (colorwayTitle ? item.color2 + tab : '') + 
+          (brandTitle ? item.brand + tab : '') + 
+          (dateTitle ? new Date(item.date).toISOString().split('T')[0] + tab  : '') + 
+          (styleIDTitle ? item.styleID + tab : '') + 
+          (slugTitle ? item.slug + tab : '') + 
+          (imageTitle ? item.image : '')  
+
         returnSting += '\n' + entry
       }
     })
@@ -90,28 +106,93 @@ export default function Home() {
 
   return (
     <>
+
         <Head>
           <title>Home</title>
           <meta name="description" content="Scan Sneaker Barcodes to Quickly Create Inventory Lists then Export to Excel, Notes, etc." />
           <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👟</text></svg>"/>
         </Head>
 
+        <div className='sticky top-0 z-50'>
+          <Header hideGetStarted={true} bgColor={"bg-black"}/>
+        </div>
+       
 
-        <div className='h-screen'>
-          <h1 className="pt-5 font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black">StockX Scanner</h1>
-          <p className="text-gray-600  pb-5 pt-2">👟 Begin by scanning any sneaker barcode</p>
+        <div className="bg-black mx-auto px-7 sm:px-20 lg:px-8">
+          <div className=" max-w-6xl mx-auto ">
+
+              <div className='min-h-screen'>
+
+              <h1 className="relative pt-6 text-2xl font-extrabold leading-snug  uppercase lg:text-5xl tracking-widest font-display text-left">Sneaker Scanner</h1>
+
+              <h3 className="text-opacity-90 pt-2 tracking-wide max-w-lg  mb-2 text-md font-medium leading-tight text-white lg:mx-0 fade-color lg:mb-4 font-display lg:text-xl xl:text-2xl lg:text-left lg:pr-6">Begin by clicking the blue scan icon</h3>
+
+              <div className='pt-10'>
+              <SearchBar 
+                camera={camera} 
+                searchMongoDB={searchMongoDB} 
+                finalScanResult={finalScanResult} 
+                setFinalScanResult={setFinalScanResult} 
+                setQueue={setQueue} 
+                setScanning={setScanning} 
+                scanning={scanning} 
+                count={data ? data?.count : ''} 
+                query={query} 
+                setResult={setResult} 
+                setQuery={setQuery} 
+                queue={queue} 
+                setQueue={setQueue} 
+              />
+            
+              <Camera 
+                camera={camera} 
+                scanning={scanning} 
+                finalScanResult={finalScanResult}
+              />
+
+              </div>
+              
 
 
-           <SearchBar camera={camera} searchMongoDB={searchMongoDB} finalScanResult={finalScanResult} setFinalScanResult={setFinalScanResult} setQueue={setQueue} setScanning={setScanning} scanning={scanning} count={data ? data?.count : ''} query={query} setResult={setResult} setQuery={setQuery} queue={queue} setQueue={setQueue} />
-        
-          <Camera camera={camera} scanning={scanning} finalScanResult={finalScanResult}/>
+              <div className={`${scanning ? 'pt-48' : null}`}>
+               
+                <div className='bg-[#121212] rounded-md border border-white border-opacity-30 mt-4'>
+                  <NewTable 
 
-          
-           
-          <div className={`${scanning ? 'pt-48' : null}`}>
-            <Table setCopy={setCopy} copy={copy} copyToClip={copyToClip} scanning={scanning} result={result} setResult={setResult} loading={loading} upcTitle={upcTitle} setUpcTitle={setUpcTitle} titleTitle={titleTitle} setTitleTitle={setTitleTitle} sizeTitle={sizeTitle} setSizeTitle={setSizeTitle} colorwayTitle={colorwayTitle} setColorwayTitle={setColorwayTitle}/>
+
+                    setCopy={setCopy} 
+                    copy={copy} 
+                    copyToClip={copyToClip} 
+                    scanning={scanning} 
+                    result={result} 
+                    setResult={setResult} 
+                    loading={loading} 
+                    upcTitle={upcTitle} 
+                    setUpcTitle={setUpcTitle} 
+                    titleTitle={titleTitle} 
+                    setTitleTitle={setTitleTitle} 
+                    sizeTitle={sizeTitle} 
+                    setSizeTitle={setSizeTitle} 
+                    colorwayTitle={colorwayTitle} 
+                    setColorwayTitle={setColorwayTitle}
+                    brandTitle={brandTitle}
+                    setBrandTitle={setBrandTitle}
+                    dateTitle={dateTitle}
+                    setDateTitle={setDateTitle}
+                    styleIDTitle={styleIDTitle}
+                    setStyleIDTitle={setStyleIDTitle}
+                    slugTitle={slugTitle}
+                    setSlugTitle={setSlugTitle}
+                    imageTitle={imageTitle}
+                    setImageTitle={setImageTitle}
+                  />
+                </div>
+                
+              </div>
+            </div>
           </div>
         </div>
+        <Footer2 />
     </>   
   )
 

@@ -27,20 +27,29 @@ export default function SearchBar({query, setQuery, queue, setQueue, count, scan
 
     return (
       <div>
-        <div className="flex mt-1 border-b border-gray-500 focus:border-b-purple-600">
+        <div className="flex mt-1 border-b border-white border-opacity-50  ">
           <input
             ref={callbackRef}
             type="text"
             name="name"
             id="name"
-            className="-ml-3 block w-full  border-0 border-transparent focus:ring-0 sm:text-sm"
+            className="block w-full border-0 border-b border-transparent focus:border-transparent bg-transparent focus:ring-0 sm:text-sm"
             placeholder={`Search ${numberWithCommas(count)} Barcodes`}
             value={query?.length ? query : ''}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
           />
+          
           <span className="m-1">
-            <BarcodeIndex camera={camera} searchMongoDB={searchMongoDB} finalScanResult={finalScanResult} setFinalScanResult={setFinalScanResult} setQueue={setQueue} scanning={scanning} setScanning={setScanning}/>
+            <BarcodeIndex 
+              camera={camera} 
+              searchMongoDB={searchMongoDB} 
+              finalScanResult={finalScanResult} 
+              setFinalScanResult={setFinalScanResult} 
+              setQueue={setQueue} 
+              scanning={scanning} 
+              setScanning={setScanning}
+            />
           </span>
          
         </div>
