@@ -16,7 +16,7 @@ const menuOptions = [
 function MobileMenuDrop({mobileOpen, setMobileOpen}) {
   return (
     <>
-        <div className='-mt-14 relative w-full h-14 flex right-0 inset-0 bg-transparent hover:cursor-pointer'>
+        <div className='-mt-14 relative w-full h-14 flex right-0 inset-0 bg-transparent hover:cursor-pointer focus:ring-transparent'>
             <div 
             onClick={()=> {
                 setMobileOpen(!mobileOpen)}
