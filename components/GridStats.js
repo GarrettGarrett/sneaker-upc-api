@@ -33,7 +33,7 @@ function GridStats() {
                         <FadeIn delay={0} duration={750}>
                             <div  className="mb-2 -mt-16">
                                 <div className="flex flex-col items-center w-full max-w-sm p-2 text-center transition duration-500 ease-in-out transform scale-100 xl:px-6 bg-gray-980 lg:mx-4 shadow-new rounded-xl lg:items-start md:my-2 group">
-                                    <div className="p-10 flex items-center justify-center w-full -mt-8 text-black">
+                                    <div className="h-full p-10 flex items-center justify-center w-full -mt-8 text-black">
                                         <GridExportSVG />
                                     </div>
 
@@ -49,7 +49,7 @@ function GridStats() {
                             <FadeIn delay={100} duration={750}>
                             <div  className="mb-2 -mt-16">
                                 <div className="flex flex-col items-center w-full max-w-sm p-2 text-center transition duration-500 ease-in-out transform scale-100 xl:px-6  lg:mx-4  rounded-xl  ">
-                                    <div className="p-10 flex items-center justify-center w-full -mt-8 text-black">
+                                    <div className="h-full p-10 flex items-center justify-center w-full -mt-8 text-black">
                                         <GridUpdateSVG />
                                     </div>
                             
@@ -65,7 +65,7 @@ function GridStats() {
                         <FadeIn delay={200} duration={750}>
                             <div  className="mb-2 -mt-16">
                                 <div className="flex flex-col items-center w-full max-w-sm p-2 text-center transition duration-500 ease-in-out transform scale-100 xl:px-6 bg-gray-980 lg:mx-4 shadow-new rounded-xl lg:items-start md:my-2 group">
-                                    <div className="p-10 flex items-center justify-center w-full -mt-8 text-black">
+                                    <div className="h-full p-10 flex items-center justify-center w-full -mt-8 text-black">
                                         {/* <InfinitySVG /> */}
                                         {/* <HandScanSVG /> */}
                                         <HandScan />
@@ -83,7 +83,7 @@ function GridStats() {
                         <FadeIn delay={300} duration={750}>
                             <div  className="mb-2 -mt-16">
                                 <div className="flex flex-col items-center w-full max-w-sm p-2 text-center transition duration-500 ease-in-out transform scale-100 xl:px-6 bg-gray-980 lg:mx-4 shadow-new rounded-xl lg:items-start md:my-2 group">
-                                    <div className="p-10 flex items-center justify-center w-full -mt-8 text-black">
+                                    <div className="h-full p-10 flex items-center justify-center w-full -mt-8 text-black">
                                         <FilterSVG />
                                     </div>
                             
