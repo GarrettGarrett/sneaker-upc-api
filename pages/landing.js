@@ -60,7 +60,7 @@ const Home = () => {
 
 
  
-<div className='h-[490px] sm:hidden '></div>
+<div className='h-[590px] sm:hidden '></div>
   <div className='h-[200px] sm:h-[200px]'>
     <ScanSection />
   </div>
