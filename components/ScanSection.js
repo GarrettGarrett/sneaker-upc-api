@@ -69,20 +69,20 @@ function ScanSection() {
                 </div>
             </div>
             <div className="relative ">
-              <div 
+              {/* <div 
                   style={{ transform: `translateY(-${offsetY >= 2400 && offsetY <= 4000 && offsetY - 2700}px) scale(${returnZeroToOneBasedOnMinMaxCurrentREVERSED(2400, 3291, offsetY, .5)})`,
                   opacity: returnZeroToOneBasedOnMinMaxCurrent(2400, 3291, offsetY),
                   // transform: 
                 }}
-                  className={`${offsetY > 3200 && "hidden"} m-auto max-w-5xl absolute inset-0 bg-red-600 rounded-full removedblur-md`}>
-              </div>
+                  className={`${offsetY > 3200 && "hidden"} m-auto max-w-5xl absolute inset-0 bg-red-600 rounded-full removedblur-md h-10`}>
+              </div> */}
 
             <div 
-            style={{ transform: `translateY(-${offsetY >= 2400 && offsetY <= 4000 && offsetY - 2700}px) scale(${returnZeroToOneBasedOnMinMaxCurrentREVERSED(2400, 3291, offsetY, .5)})`,
+            style={{ transform: `translateY(-${offsetY >= 2400 && offsetY <= 4000 && offsetY - 2400}px) scale(${returnZeroToOneBasedOnMinMaxCurrentREVERSED(2400, 3291, offsetY, .5)})`,
                       opacity: returnZeroToOneBasedOnMinMaxCurrent(2400, 3291, offsetY),
                       // transform: 
                     }}
-            className={`${offsetY > 3200 && "hidden"} m-auto relative max-w-5xl h-10 bg-red-600 rounded-full mt-24 bg-blue`}></div>
+            className={`${offsetY > 2900 && "hidden"} m-auto relative max-w-5xl h-10 bg-red-600 rounded-full mt-24 bg-blue mb-`}></div>
             </div>
             
         </div>
