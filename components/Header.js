@@ -31,8 +31,8 @@ export default function Header({hideGetStarted, bgColor}) {
               <Logo className='m-auto pt-5 rotate-6'/>
             </a>
           </div>
-          <div className="-mr-2 -my-2 md:hidden">
-            <Popover.Button className="">
+          <div className="-mr-2 -my-2 md:hidden focus:ring-transparent">
+            <Popover.Button className="focus:ring-transparent">
               <span className="sr-only">Open menu</span>
               <MenuAlt4Icon
                 onClick={()=> setMobileOpen(!mobileOpen)}
