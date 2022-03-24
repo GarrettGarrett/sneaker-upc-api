@@ -82,11 +82,19 @@ function ScanSection() {
                       opacity: returnZeroToOneBasedOnMinMaxCurrent(2400, 3291, offsetY),
                       // transform: 
                     }}
-            className={`${offsetY > 2900 && "hidden"} m-auto relative max-w-5xl h-10 bg-red-600 rounded-full mt-24 bg-blue mb-`}></div>
+            className={`${offsetY > 2900 && "hidden"} m-auto relative max-w-5xl h-10 bg-red-600 rounded-full mt-24 bg-blue hidden sm:block`}></div>
+            
+            <div 
+            style={{ transform: `translateY(-${offsetY >= 2900 && offsetY <= 3700 && offsetY - 2900}px) scale(${returnZeroToOneBasedOnMinMaxCurrentREVERSED(2900, 3300, offsetY, .5)})`,
+                      opacity: returnZeroToOneBasedOnMinMaxCurrent(2900, 3300, offsetY),
+                      // transform: 
+                    }}
+            className={`${offsetY > 4000 && "hidden"} m-auto relative max-w-5xl h-10 bg-red-600 rounded-full mt-24 bg-blue sm:hidden` }></div>
+
             </div>
             
         </div>
-        {/* <div className="text-white">{offsetY}</div> */}
+        <div className="text-white">{offsetY}</div>
     </>
   )
 }
