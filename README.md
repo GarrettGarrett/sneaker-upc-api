@@ -19,9 +19,10 @@
   <a href="#Instagram">Instagram</a>
 </p>
 
-![screenshot](public/home.png)
-![screenshot](public/recent.png)
-![screenshot](public/about.png)
+![screenshot](public/readme-landingpage.png)
+![screenshot](public/readme-home.png)
+![screenshot](public/readme-recent.png)
+![screenshot](public/readme-about.png)
 
 ## Demo
 
