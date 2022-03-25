@@ -29,7 +29,7 @@ function CollapsableTier() {
 
   return (
     <>
-        <div className=' -mt-11 sm:mt-4 w-full p-0 max-h-lg grid grid-cols-1 place-items-center center'>
+        <div className=' sm:mt-4 w-full p-0 max-h-lg grid grid-cols-1 place-items-center center'>
                 {
                     
                     boxes.map((box, index) => {
@@ -45,7 +45,7 @@ function CollapsableTier() {
                             }}
                            
                              className={`
-                                ${selected == box.id ? "h-[25vh] sm:h-64" : "h-[25vh] sm:h-36"}
+                                ${selected == box.id ? "h-[250px] sm:h-64" : "h-[250px] sm:h-36"}
                                 group mb-4 relative border border-white border-opacity-20 rounded-xl  w-full lg:w-10/12 
                                 ease-in-out duration-300
                                 hover:border-opacity-100

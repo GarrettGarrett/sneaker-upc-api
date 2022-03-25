@@ -26,7 +26,7 @@ const Home = () => {
 
         <div className=" mx-auto px-7 sm:px-20 lg:px-8">
           <div className=" max-w-6xl mx-auto ">
-                <div className='sm:h-screen flex'>
+                <div className='h-screen min-h-[]flex'>
                     <div className='mt-12 sm:m-auto 
                     grid grid-cols-1 lg:grid-cols-2 gap-16 '>
                         <div>
