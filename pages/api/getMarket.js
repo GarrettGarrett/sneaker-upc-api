@@ -34,6 +34,7 @@ export default async (req, res) => {
        
         
         let response = await fetch(`https://stockx.com/api/products/${req.body.stockx_id}?includes=market,360&currency=USD&country=US`, requestOptions)
+        console.log("🚀 ~ file: getMarket.js ~ line 37 ~ response", response)
 
         if (response) {
             const resp_json = await response.json()
