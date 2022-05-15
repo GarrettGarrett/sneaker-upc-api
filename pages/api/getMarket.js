@@ -2,8 +2,8 @@
 export default async (req, res) => {
     
     
-    if (req.method === 'POST') { //post stockx_id (must be parent - not size specific- because this is how scout works.) and size
-        console.log(req.body)
+    if (req.method === 'POST' ) { //post stockx_id (must be parent - not size specific- because this is how scout works.) and size
+        console.log(req)
         
         var myHeaders = new Headers();
         myHeaders.append("authority", "stockx.com");
