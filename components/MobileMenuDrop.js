@@ -27,7 +27,7 @@ function MobileMenuDrop({mobileOpen, setMobileOpen}) {
             {
                 menuOptions.map(option => {
                     return (
-                        <Link href={option.href}>
+                        <Link href={option.href} key={option.href}>
                             <div className='hover:cursor-pointer flex space-x-5 bg-[#121212] rounded-lg py-4 my-2 mx-4 '>
                                 <option.icon className={`w-5 h-5 rounded-full ml-4 ${option.color}`}/>
                                 <span className='text-white '>{option.content}</span>

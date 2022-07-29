@@ -38,7 +38,7 @@ export default function SitemapTimeline() {
       <ul role="list" className="-mb-8">
         {timeline.map((event, eventIdx) => (
           
-          <Link href={event.href}>
+          <Link href={event.href} key={index}>
             <li key={event.id} className='hover:cursor-pointer'>
                 <div className="relative pb-8">
                 {eventIdx !== timeline.length - 1 ? (

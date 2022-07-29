@@ -74,9 +74,9 @@ function Slider() {
         <div className="flex absolute top-0 left-0  whitespace-nowrap animate-slide">
         
         {
-            badgesRow1.map(badge => {
+            badgesRow1.map((badge, index) => {
                 return (
-                    <div  className={`${badge.color}  mx-5 flex items-center justify-center w-auto h-8 p-6 rounded-full lg:h-10 lg:p-8`}>
+                    <div key={index} className={`${badge.color}  mx-5 flex items-center justify-center w-auto h-8 p-6 rounded-full lg:h-10 lg:p-8`}>
                         <badge.icon className='w-5 h-5'/>
                         <div className="ml-3 text-lg leading-snug text-white whitespace-nowrap lg:text-xl">{badge.content}
                         </div>
