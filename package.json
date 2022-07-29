@@ -34,7 +34,8 @@
     "react-visibility-sensor": "^5.1.1",
     "styled-components": "^5.3.3",
     "swr": "^1.2.1",
-    "use-sound": "^4.0.1"
+    "use-sound": "^4.0.1",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "@types/node": "17.0.4",

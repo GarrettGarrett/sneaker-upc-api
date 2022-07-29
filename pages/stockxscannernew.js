@@ -10,51 +10,25 @@ import { ClipboardIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
 import NewTable from '../components/NewTable'
 import Header from '../components/Header'
 import Footer2 from '../components/Footer2'
+import DiscordWebhook from '../components/DiscordWebhook'
 
 
 const fetcher = url => fetch(url).then(r => r.json())
 
-async function sendDiscord(content, webhookUrl) {
-  var myHeaders = new Headers();
-  // var myHeaders = new Headers();
-  myHeaders.append("authority", "discord.com");
-  myHeaders.append("accept", "*/*");
-  myHeaders.append("accept-language", "en-US,en;q=0.9");
-  myHeaders.append("content-type", "application/json");
-  myHeaders.append("origin", "https://dev.to");
-  myHeaders.append("referer", "https://dev.to/");
-  myHeaders.append("sec-ch-ua", "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Google Chrome\";v=\"100\"");
-  myHeaders.append("sec-ch-ua-mobile", "?0");
-  myHeaders.append("sec-ch-ua-platform", "\"macOS\"");
-  myHeaders.append("sec-fetch-dest", "empty");
-  myHeaders.append("sec-fetch-mode", "cors");
-  myHeaders.append("sec-fetch-site", "same-origin");
-  myHeaders.append("sec-fetch-site", "cross-site");
-  myHeaders.append('Access-Control-Allow-Headers', '*');
-  myHeaders.append("Access-Control-Allow-Origin", "*");
-  myHeaders.append("Access-Control-Allow-Credentials", "true");
-  myHeaders.append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  myHeaders.append("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-  myHeaders.append("Access-Control-Allow-Origin", "*");
-  myHeaders.append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  myHeaders.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-
-
-  var raw = JSON.stringify({
-      username: "Sneakerlinks.io",
-      content: content,
-  })
-
-  var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
-  };
-
-  var messageDiscord =  await fetch(webhookUrl, requestOptions)
-  console.log("🚀 ~ file: testing.js ~ line 63 ~ sendWebhook ~ messageDiscord", messageDiscord.status)
-  return messageDiscord.status
+//Pass in the url from first fetch results
+async function sendDiscordMgs(content, webhookUrl, sneaker) {
+  let body = {
+    content,
+    webhookUrl,
+    sneaker
+  }
+  const res = await fetch ("/api/sendDiscordMsg", {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body) 
+})
+  const {response} = await res?.json()
+    
 }
 
 export default function Home() {
@@ -90,8 +64,7 @@ export default function Home() {
   const [scanning, setScanning] = useState(false) 
   const [finalScanResult, setFinalScanResult] = useState(false)
   const [camera, setCamera] = useState(false) //if user has camera permissions enabled
-  const [sendToDiscord, setSendToDiscord] = useState(true)
-  const [webhookUrl, setWebhookUrl] = useState("https://discord.com/api/webhooks/1002312586848632885/FCynNfZfPju1IUM8RuZrO6FAlA4d-t_98774VTMeKbbj9OAJbPD8u2Zb0-L_i6yEzXpS")
+  const [webhookUrl, setWebhookUrl] = useState("")
 
 
   useEffect(() => {
@@ -140,8 +113,8 @@ export default function Home() {
       setResult((oldArray) => [...oldArray, sneaker]) //add to queue
       setLoading(false)   
       setFinalScanResult(false)//turn off green color   
-      if (sendToDiscord && sneaker) {
-        let response = await sendDiscord(sneaker, webhookUrl)
+      if (webhookUrl?.length > 20 && sneaker) {
+        let response = await sendDiscordMgs(userQuery, webhookUrl, sneaker)
         console.log("🚀 ~ file: stockxscannernew.js ~ line 138 ~ searchMongoDB ~ response", response)
       }
     }
@@ -233,6 +206,10 @@ export default function Home() {
                     imageTitle={imageTitle}
                     setImageTitle={setImageTitle}
                   />
+                </div>
+
+                <div className='text-white pt-4'>
+                  <DiscordWebhook webhookUrl={webhookUrl} setWebhookUrl={setWebhookUrl}/>
                 </div>
                 
               </div>
