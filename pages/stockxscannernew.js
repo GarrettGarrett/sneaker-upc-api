@@ -10,17 +10,23 @@ import { ClipboardIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
 import NewTable from '../components/NewTable'
 import Header from '../components/Header'
 import Footer2 from '../components/Footer2'
-import DiscordWebhook from '../components/DiscordWebhook'
-
+import DiscordWebhookAdd from '../components/DiscordWebhookAdd'
+import KeyInput from '../components/KeyInput'
+import localStorage from 'localStorage'
+import DiscordWebhookSold from '../components/DiscordWebhookSold'
+import Toggle from '../components/Toggle'
 
 const fetcher = url => fetch(url).then(r => r.json())
 
 //Pass in the url from first fetch results
-async function sendDiscordMgs(content, webhookUrl, sneaker) {
+async function sendDiscordMgs(content, masterHookAdd, masterHookSold, enabled, sneaker, masterKey) {
   let body = {
     content,
-    webhookUrl,
-    sneaker
+    masterHookAdd,
+    masterHookSold, 
+    enabled,
+    sneaker,
+    masterKey
   }
   const res = await fetch ("/api/sendDiscordMsg", {
     method: 'POST',
@@ -64,7 +70,13 @@ export default function Home() {
   const [scanning, setScanning] = useState(false) 
   const [finalScanResult, setFinalScanResult] = useState(false)
   const [camera, setCamera] = useState(false) //if user has camera permissions enabled
-  const [webhookUrl, setWebhookUrl] = useState("")
+  const [masterHookAdd, setMasterHookAdd] = useState("")
+  const [masterHookSold, setMasterHookSold] = useState("")
+  const [masterKey, setMasterKey] = useState("")
+  const [enabled, setEnabled] = useState(true)
+
+
+
 
 
   useEffect(() => {
@@ -113,9 +125,8 @@ export default function Home() {
       setResult((oldArray) => [...oldArray, sneaker]) //add to queue
       setLoading(false)   
       setFinalScanResult(false)//turn off green color   
-      if (webhookUrl?.length > 20 && sneaker) {
-        let response = await sendDiscordMgs(userQuery, webhookUrl, sneaker)
-        console.log("🚀 ~ file: stockxscannernew.js ~ line 138 ~ searchMongoDB ~ response", response)
+      if ((masterHookAdd?.length > 20 && sneaker)) {
+        let response = await sendDiscordMgs(userQuery, masterHookAdd, masterHookSold, enabled, sneaker, masterKey)
       }
     }
   }
@@ -149,6 +160,10 @@ export default function Home() {
               <h1 className="relative pt-6 text-2xl font-extrabold leading-snug  uppercase lg:text-5xl tracking-widest font-display text-left">Sneaker Scanner</h1>
 
               <h3 className="text-opacity-90 pt-2 tracking-wide max-w-lg  mb-2 text-md font-medium leading-tight text-white lg:mx-0 fade-color lg:mb-4 font-display lg:text-xl xl:text-2xl lg:text-left lg:pr-6">Begin by clicking the blue scan icon</h3>
+
+              <div className='pt-2'>
+                <Toggle enabled={enabled} setEnabled={setEnabled}/>
+              </div>
 
               <div className='pt-10'>
               <SearchBar 
@@ -209,7 +224,15 @@ export default function Home() {
                 </div>
 
                 <div className='text-white pt-4'>
-                  <DiscordWebhook webhookUrl={webhookUrl} setWebhookUrl={setWebhookUrl}/>
+                  <DiscordWebhookAdd masterHookAdd={masterHookAdd} setMasterHookAdd={setMasterHookAdd} />
+                </div>
+
+                <div className='text-white pt-4'>
+                  <DiscordWebhookSold masterHookSold={masterHookSold} setMasterHookSold={setMasterHookSold}/>
+                </div>
+
+                <div className='text-white pt-4'>
+                  <KeyInput masterKey={masterKey} setMasterKey={setMasterKey}/>
                 </div>
                 
               </div>

@@ -1,5 +1,5 @@
 
-async function sendMessage(content, webhookUrl, sneaker) {
+async function sendMessage(content, webhookUrl, sneaker, masterKey) {
     var myHeaders = new Headers();
     myHeaders.append("authority", "discord.com");
     myHeaders.append("accept", "*/*");
@@ -15,7 +15,7 @@ async function sendMessage(content, webhookUrl, sneaker) {
     myHeaders.append("sec-fetch-site", "cross-site");
 
         var raw = JSON.stringify({
-        username: "sneakerscan.io",
+        username: masterKey,
         content: content,
         avatar_url: sneaker?.image ? sneaker?.image : "",
       
@@ -39,11 +39,18 @@ export default async (req, res) => {
     
     if (req.method === 'POST') {
 
-        if (req?.body?.content && req?.body?.webhookUrl) {
-                let response = await sendMessage(req?.body?.content, req?.body?.webhookUrl, req?.body?.sneaker)
-
-                return res.status(200).json({ response })
-           
+        if (req?.body?.content) {
+                // if marsterHookAdd && enabled, send to add hook
+                if (req?.body?.masterHookAdd && req?.body?.enabled){
+                    let response = await sendMessage(req?.body?.content, req?.body?.masterHookAdd, req?.body?.sneaker, req?.body?.masterKey)
+                    return res.status(200).json({ response })
+                }
+                // if masterhook sold && !enabled, send to mark sold
+                if (req?.body?.masterHookSold && req?.body?.enabled == false) {
+                    let response = await sendMessage(req?.body?.content, req?.body?.masterHookSold, req?.body?.sneaker, req?.body?.masterKey)
+                    return res.status(200).json({ response })
+                }
+                return res.status(200).json({ success:false })
             }
         }    
     }

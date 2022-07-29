@@ -45,7 +45,6 @@ export default function NewTable({
   const [indeterminate, setIndeterminate] = useState(false)
   const [selectedPeople, setSelectedPeople] = useState([])
   const [selectedByIdx, setSelectedByIdx] = useState([])
-  console.log("🚀 ~ file: NewTable.js ~ line 48 ~ selectedByIdx", selectedByIdx)
   const [copyButtonText, setCopyButtonText] = useState("Copy Selected")
 
   useEffect(() => {
