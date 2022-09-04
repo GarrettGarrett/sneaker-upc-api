@@ -141,7 +141,6 @@ export default function Home() {
                 setResult={setResult} 
                 setQuery={setQuery} 
                 queue={queue} 
-                setQueue={setQueue} 
               />
             
               <Camera 
@@ -158,8 +157,6 @@ export default function Home() {
                
                 <div className='bg-[#121212] rounded-md border border-white border-opacity-30 mt-4'>
                   <NewTable 
-
-
                     setCopy={setCopy} 
                     copy={copy} 
                     copyToClip={copyToClip} 

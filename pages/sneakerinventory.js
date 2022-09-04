@@ -136,6 +136,16 @@ export default function Home() {
     
   }, [queue])
 
+function autoSubmit(){
+  setQueue((oldArray) => [...oldArray, query ])
+  setQuery('')
+}
+
+  useEffect(() => { //Search once user stops typing for 1000 ms
+    const timeoutId = setTimeout(async () =>  autoSubmit(), 1000);
+    return () => clearTimeout(timeoutId);
+  }, [query]);
+
 
 
   return (

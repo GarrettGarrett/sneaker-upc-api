@@ -25,6 +25,8 @@ export default function SearchBar({query, setQuery, queue, setQueue, count, scan
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
+
+
     return (
       <div>
         <div className="flex mt-1 border-b border-white border-opacity-50  ">
