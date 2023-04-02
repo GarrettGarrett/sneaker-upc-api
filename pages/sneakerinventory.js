@@ -101,7 +101,7 @@ export default function Home() {
           (sizeTitle ?  item.size + tab : '') + 
           (colorwayTitle ? item.color2 + tab : '') + 
           (brandTitle ? item.brand + tab : '') + 
-          (dateTitle ? new Date(item.date).toISOString().split('T')[0] + tab  : '') + 
+          (dateTitle ? new Date(item.date)?.toISOString()?.split('T')[0] + tab  : '') + 
           (styleIDTitle ? item.styleID + tab : '') + 
           (slugTitle ? item.slug + tab : '') + 
           (imageTitle ? item.image : '')  

@@ -13,7 +13,6 @@ export default async (req, res) => {
         myHeaders.append("appversion", "0.1");
         myHeaders.append("authorization", "");
         myHeaders.append("if-none-match", "W/\"4434b-oVWe77Pxt3efik1nChJDKt1uyhU\"");
-        // myHeaders.append("referer", "https://stockx.com/buy/air-jordan-1-retro-high-pollen?size=7");
         myHeaders.append("sec-ch-ua", "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"101\", \"Google Chrome\";v=\"101\"");
         myHeaders.append("sec-ch-ua-mobile", "?0");
         myHeaders.append("sec-ch-ua-platform", "\"macOS\"");
